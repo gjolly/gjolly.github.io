@@ -8,7 +8,7 @@
 /* ---------------------------------------------- */
 
 body {
-	font: 300 15px/1.6 'Roboto', serif, sans-serif;
+	font: 300 18px/1.5 'Roboto', serif, sans-serif;
 	color: #545454;
 }
 
@@ -30,7 +30,7 @@ a:hover {
 /* ---------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
-	font: 400 46px/1.2 'Roboto', serif, sans-serif;
+	font: 400 50px/1.2 'Roboto', serif, sans-serif;
 	margin: 5px 0 5px;
 	color: #222;
 }
