@@ -582,6 +582,10 @@ h3 > .fa {
  * Service
 /* ---------------------------------------------- */
 
+.text {
+	text-align: justify;
+}
+
 .service {
 	margin: 0 0 40px;
 }
