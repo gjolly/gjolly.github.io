@@ -1,4 +1,4 @@
-baseurl = "https://www.gauthier.uk/"
+baseurl = "https://gjolly.github.io/website/"
 title = "Gauthier Jolly"
 theme = "pulp"
 canonifyurls = true
