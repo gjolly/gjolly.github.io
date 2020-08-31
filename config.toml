@@ -20,11 +20,6 @@ hasCJKLanguage = true
     # custom_css = ["/css/custom.css"]
     # custom_js = ["/js/custom.js"]
 
-# Make sure setting a following option for search bar to work
-[outputs]
-    section = ["JSON", "HTML"]
-    taxonomy = ["JSON", "HTML"]
-
 [[menu.main]]
     identifier = "linkedin"
     # name = "Blog" #If display text link, cancel comment out
@@ -52,3 +47,9 @@ hasCJKLanguage = true
     pre = "<i class='fa fa-envelope fa-lg'></i>"
     url = "mailto:contact@gauthierjolly.com"
     weight = 40
+
+# Menu links
+[[menu.main]]
+name = "Blog"
+weight = 1
+url  = "/blog/"
