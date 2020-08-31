@@ -48,8 +48,8 @@ hasCJKLanguage = true
     url = "mailto:contact@gauthierjolly.com"
     weight = 40
 
-# Menu links
 [[menu.main]]
-name = "Blog"
-weight = 1
-url  = "/blog/"
+    identifier = "blog"
+    pre = "<i class='fa fa-book-open fa-lg'></i>"
+    url = "/blog/"
+    weight = 50
