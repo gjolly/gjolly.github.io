@@ -17,8 +17,13 @@ hasCJKLanguage = true
     publicationYear = "2020"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
     # singlePageDateFormat = "January 2, 2006"
-    # custom_css = ["/css/custom.css"]
+    custom_css = ["/css/custom.css"]
     # custom_js = ["/js/custom.js"]
+
+# Make sure setting a following option for search bar to work
+[outputs]
+    section = ["JSON", "HTML"]
+    term = ["JSON", "HTML"]
 
 [[menu.main]]
     identifier = "linkedin"
