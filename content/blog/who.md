@@ -123,6 +123,7 @@ What we simply need to do is: open `/var/run/utmp`, read `n` bytes (where `n` is
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <locale.h>
 
 int main() {
   // set the right locale to display the information nicely
