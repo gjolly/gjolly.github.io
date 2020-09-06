@@ -28,7 +28,7 @@ jobs:
         with:
           key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
           secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
-          bucket: 'gauthier.uk'
+          bucket: '.textileseed'
           thread: 'bafk4zl3wjybcxdqxng2fqjkmvlo6trsd3ryfmmidl6iybitplqwtygy'
           path: ./public
       - name: Get the output CID
