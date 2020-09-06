@@ -22,7 +22,15 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Deploy
+      - deploy IPFS
+        uses: aquiladev/ipfs-action@v1
+        with:
+          path: ./public
+          service: pinata
+          pinataKey: ${{ secrets.PINATA_KEY }}
+          pinataSecret: ${{ secrets.PINATA_SECRET }}
+
+      - name: Deploy GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
