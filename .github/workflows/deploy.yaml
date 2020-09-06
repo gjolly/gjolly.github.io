@@ -23,7 +23,7 @@ jobs:
         run: hugo --minify
 
       - name: deploy IPFS
-        uses: aquiladev/ipfs-action@v1
+        uses: aquiladev/ipfs-action@v0.1.4
         with:
           path: ./public
           service: pinata
