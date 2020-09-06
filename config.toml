@@ -1,7 +1,7 @@
 baseurl = "https://gauthier.uk/"
 title = "Gauthier Jolly"
 theme = "pulp"
-canonifyurls = false
+canonifyurls = true
 hasCJKLanguage = true
 # pygmentsCodefences = true
 # pygmentsUseClasses = true

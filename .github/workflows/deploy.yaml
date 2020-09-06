@@ -22,13 +22,34 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: deploy IPFS
-        uses: aquiladev/ipfs-action@v0.1.4
+      - name: push action
+        id: bucket
+        uses: textileio/github-action-buckets@master
         with:
+          key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
+          secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
+          bucket: 'gauthier.uk'
+          thread: 'bafk4zl3wjybcxdqxng2fqjkmvlo6trsd3ryfmmidl6iybitplqwtygy'
           path: ./public
-          service: pinata
-          pinataKey: ${{ secrets.PINATA_KEY }}
-          pinataSecret: ${{ secrets.PINATA_SECRET }}
+      # Use the output from the `hello` step
+      - run: echo "bucket key: ${{ steps.bucket.outputs.key }}"
+      - run: echo "ipfs: ${{ steps.bucket.outputs.ipfs }}"
+      - run: echo "ipfs link: ${{ steps.bucket.outputs.ipfsUrl }}"
+      - run: echo "ipns: ${{ steps.bucket.outputs.ipns }}"
+      - run: echo "ipns link: ${{ steps.bucket.outputs.ipnsUrl }}"
+      - run: echo "hub: ${{ steps.bucket.outputs.hub }}"
+      - run: echo "www: ${{ steps.bucket.outputs.www }}"
+
+      - name: Update DNSLink
+        env:
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          RECORD_DOMAIN: 'ipfs.gauthier.uk'
+          RECORD_NAME: '_dnslink.uk'
+        id: dnslink
+        uses: textileio/cloudflare-update-dnslink@master
+        with:
+          cid: ${{ steps.push.outputs.cid }}
 
       - name: Deploy GH Pages
         uses: peaceiris/actions-gh-pages@v3
