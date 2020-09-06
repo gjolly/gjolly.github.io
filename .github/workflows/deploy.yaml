@@ -31,14 +31,8 @@ jobs:
           bucket: 'gauthier.uk'
           thread: 'bafk4zl3wjybcxdqxng2fqjkmvlo6trsd3ryfmmidl6iybitplqwtygy'
           path: ./public
-      # Use the output from the `hello` step
-      - run: echo "bucket key: ${{ steps.bucket.outputs.key }}"
-      - run: echo "ipfs: ${{ steps.bucket.outputs.ipfs }}"
-      - run: echo "ipfs link: ${{ steps.bucket.outputs.ipfsUrl }}"
-      - run: echo "ipns: ${{ steps.bucket.outputs.ipns }}"
-      - run: echo "ipns link: ${{ steps.bucket.outputs.ipnsUrl }}"
-      - run: echo "hub: ${{ steps.bucket.outputs.hub }}"
-      - run: echo "www: ${{ steps.bucket.outputs.www }}"
+      - name: Get the output CID
+        run: echo "The CID was ${{ steps.push.outputs.cid }}"
 
       - name: Update DNSLink
         env:
