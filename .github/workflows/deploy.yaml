@@ -22,17 +22,14 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: push action
+      - name: pin to pinata
+        uses: aquiladev/ipfs-action@v0.1.4
         id: push
-        uses: textileio/github-action-buckets@v14
         with:
-          key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
-          secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
-          bucket: 'website'
-          thread: 'bafkxyjxamfnuhlr3wwcr7igwwkj5q6t6gr6n4e4r57xyycf356g67za'
           path: ./public
-      - name: Get the output CID
-        run: echo "The CID was ${{ steps.push.outputs.cid }}"
+          service: pinata
+          pinataKey: ${{ secrets.PINATA_KEY }}
+          pinataSecret: ${{ secrets.PINATA_SECRET }}
 
       - name: Update DNSLink
         env:
@@ -43,7 +40,7 @@ jobs:
         id: dnslink
         uses: textileio/cloudflare-update-dnslink@master
         with:
-          cid: ${{ steps.push.outputs.cid }}
+          cid: ${{ steps.push.outputs.hash }}
 
       - name: Deploy GH Pages
         uses: peaceiris/actions-gh-pages@v3
