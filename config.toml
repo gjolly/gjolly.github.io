@@ -1,4 +1,4 @@
-baseurl = "https://gauthier.uk/"
+baseurl = "" # this is possible because I'm only using root domains add site root
 title = "Gauthier Jolly"
 theme = "pulp"
 canonifyurls = true
