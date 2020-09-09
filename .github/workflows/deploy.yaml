@@ -29,7 +29,7 @@ jobs:
           key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
           secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
           bucket: 'website'
-          thread: 'bafk4zl3wjybcxdqxng2fqjkmvlo6trsd3ryfmmidl6iybitplqwtygy'
+          thread: 'bafkxyjxamfnuhlr3wwcr7igwwkj5q6t6gr6n4e4r57xyycf356g67za'
           path: ./public
       - name: Get the output CID
         run: echo "The CID was ${{ steps.push.outputs.cid }}"
