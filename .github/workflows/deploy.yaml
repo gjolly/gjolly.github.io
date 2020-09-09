@@ -22,7 +22,30 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Deploy
+      - name: push action
+        id: push
+        uses: textileio/github-action-buckets@master
+        with:
+          key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
+          secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
+          bucket: 'bafzbeibowrp2jxzxuvh6k36pnm6qx4qdtidg5s6mgwqhqrjmlv2zabzopi'
+          thread: 'bafk4zl3wjybcxdqxng2fqjkmvlo6trsd3ryfmmidl6iybitplqwtygy'
+          path: ./public
+      - name: Get the output CID
+        run: echo "The CID was ${{ steps.push.outputs.cid }}"
+
+      - name: Update DNSLink
+        env:
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          RECORD_DOMAIN: 'ipfs'
+          RECORD_NAME: '_dnslink.ipfs'
+        id: dnslink
+        uses: textileio/cloudflare-update-dnslink@master
+        with:
+          cid: ${{ steps.push.outputs.cid }}
+
+      - name: Deploy GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
