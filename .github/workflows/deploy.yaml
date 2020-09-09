@@ -23,7 +23,7 @@ jobs:
         run: hugo --minify
 
       - name: push action
-        id: bucket
+        id: push
         uses: textileio/github-action-buckets@master
         with:
           key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
