@@ -24,7 +24,7 @@ jobs:
 
       - name: push action
         id: push
-        uses: textileio/github-action-buckets@master
+        uses: textileio/github-action-buckets@v18
         with:
           key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
           secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
