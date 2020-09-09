@@ -35,7 +35,7 @@ jobs:
         env:
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
-          RECORD_DOMAIN: 'ipfs'
+          RECORD_DOMAIN: 'gauthier.uk'
           RECORD_NAME: '_dnslink.ipfs'
         id: dnslink
         uses: textileio/cloudflare-update-dnslink@master
