@@ -1,3 +1,14 @@
++++
+date = 2021-11-14T13:10:00Z
+title = "Firewall, Tailscale and Ubuntu"
+description = "How to configure Ubuntu's Firewall to allow SSH in with Tailscale"
+slug = ""
+tags = ["Linux", "Security", "Ubuntu"]
+categories = []
+externalLink = ""
+series = []
++++
+
 # Firewall, Tailscale and Ubuntu
 
 I recently enabled the Firewall on my desktop on Ubuntu. I probably did a quick lookup online to find out that `sudo ufw enable` was enough to enable it. I entered the command and forgot about it.
