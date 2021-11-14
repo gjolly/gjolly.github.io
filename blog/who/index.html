@@ -1,31 +1,105 @@
-<!doctype html><html><head><title>The UNIX `who` command - Gauthier Jolly</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Gauthier Jolly"><link rel="shortcut icon" type=image/x-icon href=/img/terminal-sign.svg><link rel=stylesheet href=/style.min.6f642c5866835106e8a19b94463576436c99be9e41a8714ab3df3daa95f6bf90.css integrity="sha256-b2QsWGaDUQbooZuURjV2Q2yZvp5BqHFKs989qpX2v5A="><link rel=stylesheet href=/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB+BLd7VPoFFdCmg9OezbJR26lg/h+Wb3/zb8I="><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="The UNIX `who` command"><meta property="og:description" content="Understanding where `who` gets its data"><meta property="og:type" content="article"><meta property="og:url" content="/blog/who/"><meta property="article:published_time" content="2020-08-31T11:40:00+00:00"><meta property="article:modified_time" content="2020-08-31T11:40:00+00:00"><meta itemprop=name content="The UNIX `who` command"><meta itemprop=description content="Understanding where `who` gets its data"><meta itemprop=datePublished content="2020-08-31T11:40:00+00:00"><meta itemprop=dateModified content="2020-08-31T11:40:00+00:00"><meta itemprop=wordCount content="1025"><meta itemprop=keywords content="Linux,utmp,UNIX,"><meta name=twitter:card content="summary"><meta name=twitter:image content="/img/avatar.jpg"><meta name=twitter:title content="The UNIX `who` command"><meta name=twitter:description content="Understanding where `who` gets its data"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><h1>The UNIX `who` command</h1><header><div class=avatar><img class=avatarMask src=/img/avatar.jpg alt>
-<a href><img class=avatar-border src=/img/avatar-border.svg alt></a></div><h2><a class=author href>Gauthier Jolly</a></h2></header><p class=date>August 31, 2020</p><div id=tags><ul><li><a href=/tags/linux/>Linux</a></li><li><a href=/tags/utmp/>utmp</a></li><li><a href=/tags/unix/>UNIX</a></li></ul></div><div id=contentBody><h1 id=the-who-command>The <code>who</code> command</h1><p>While working on a completely different project, I started to ask myself how the <code>who</code> command was working under the hood. In the end, I thought it was a good topic for a blog post.</p><h2 id=who-is-who>Who is <code>who</code></h2><p>Let&rsquo;s start with the basics. the <code>who</code> command allows you to list the users currently logged on the system.
-For example, on my machine:</p><pre><code>$ who
+<!doctype html><html>
+<head>
+<title>
+The UNIX `who` command - Gauthier Jolly
+</title>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Gauthier Jolly">
+<link rel="shortcut icon" type=image/x-icon href=/img/terminal-sign.svg>
+<link rel=stylesheet href=/style.min.39acacc5d2051426f655a6b7fbf4786fbd0fd8fffd09322c9b497ef0f7439b3f.css integrity="sha256-OaysxdIFFCb2Vaa3+/R4b70P2P/9CTIsm0l+8PdDmz8=">
+<link rel=stylesheet href=/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB+BLd7VPoFFdCmg9OezbJR26lg/h+Wb3/zb8I=">
+<link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous>
+<link rel=stylesheet href=/css/custom.css>
+<meta property="og:title" content="The UNIX `who` command">
+<meta property="og:description" content="Understanding where `who` gets its data">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/blog/who/"><meta property="article:section" content="blog">
+<meta property="article:published_time" content="2020-08-31T11:40:00+00:00">
+<meta property="article:modified_time" content="2020-08-31T11:40:00+00:00">
+<meta itemprop=name content="The UNIX `who` command">
+<meta itemprop=description content="Understanding where `who` gets its data"><meta itemprop=datePublished content="2020-08-31T11:40:00+00:00">
+<meta itemprop=dateModified content="2020-08-31T11:40:00+00:00">
+<meta itemprop=wordCount content="1025">
+<meta itemprop=keywords content="Linux,utmp,UNIX,"><meta name=twitter:card content="summary">
+<meta name=twitter:image content="/img/avatar.jpg">
+<meta name=twitter:title content="The UNIX `who` command">
+<meta name=twitter:description content="Understanding where `who` gets its data"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<h1>The UNIX `who` command</h1>
+<header>
+<div class=avatar>
+<img class=avatarMask src=/img/avatar.jpg alt>
+<a href><img class=avatar-border src=/img/avatar-border.svg alt></a>
+</div>
+<h2><a class=author href>Gauthier Jolly</a></h2>
+</header>
+<p class=date>August 31, 2020</p>
+<div id=tags>
+<ul>
+<li><a href=/tags/linux/>Linux</a></li>
+<li><a href=/tags/utmp/>utmp</a></li>
+<li><a href=/tags/unix/>UNIX</a></li>
+</ul>
+</div>
+<div id=contentBody>
+<h1 id=the-who-command>The <code>who</code> command</h1>
+<p>While working on a completely different project, I started to ask myself how the <code>who</code> command was working under the hood. In the end, I thought it was a good topic for a blog post.</p>
+<h2 id=who-is-who>Who is <code>who</code></h2>
+<p>Let&rsquo;s start with the basics. the <code>who</code> command allows you to list the users currently logged on the system.
+For example, on my machine:</p>
+<pre tabindex=0><code>$ who
 gauthier tty2         2020-08-30 15:06 (tty2)
 gauthier pts/1        2020-08-30 15:06 (tmux(1555).%0)
 gauthier pts/2        2020-08-30 16:41 (tmux(1555).%6)
 gauthier pts/4        2020-08-30 15:57 (tmux(1555).%3)
-</code></pre><p>It tells me that I am logged on the &ldquo;physical&rdquo; terminal <code>tty2</code> and on three pseudo terminals. Indeed my current session of Gnome Shell is running on <code>tty2</code> and I have 3 <code>tmux</code> windows open.</p><p>But where is it getting those information? Probably from a file as everything is a file with Linux, but let&rsquo;s check which one and how the data is stored there.</p><h2 id=a-bit-of-reverse-engineering>A bit of reverse engineering</h2><p>In order to see what the <code>who</code> command is doing I could try to find the source code and dig into it. But I found it fun to use <code>strace</code> to check what the process was doing instead. Since we are expecting <code>who</code> to read system files, we can only focus on the <code>open</code> syscalls.</p><pre><code>$ strace who 2&gt;&amp;1 | grep open
+</code></pre><p>It tells me that I am logged on the &ldquo;physical&rdquo; terminal <code>tty2</code> and on three pseudo terminals. Indeed my current session of Gnome Shell is running on <code>tty2</code> and I have 3 <code>tmux</code> windows open.</p>
+<p>But where is it getting those information? Probably from a file as everything is a file with Linux, but let&rsquo;s check which one and how the data is stored there.</p>
+<h2 id=a-bit-of-reverse-engineering>A bit of reverse engineering</h2>
+<p>In order to see what the <code>who</code> command is doing I could try to find the source code and dig into it. But I found it fun to use <code>strace</code> to check what the process was doing instead. Since we are expecting <code>who</code> to read system files, we can only focus on the <code>open</code> syscalls.</p>
+<pre tabindex=0><code>$ strace who 2&gt;&amp;1 | grep open
 openat(AT_FDCWD, &quot;/etc/ld.so.cache&quot;, O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, &quot;/usr/lib/libc.so.6&quot;, O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, &quot;/usr/lib/locale/locale-archive&quot;, O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, &quot;/var/run/utmp&quot;, O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, &quot;/etc/localtime&quot;, O_RDONLY|O_CLOEXEC) = 3
-</code></pre><p>We can quickly filter what is interesting and what is not. The first files two files <code>/etc/ld.so.cache</code>, <code>/usr/lib/libc.so.6</code> are shared libraries loaded by the process, those are interesting us.</p><p>Then <code>/usr/lib/locale/locale-archive</code>, <code>/var/run/utmp</code> and <code>/etc/localtime</code> are opened. Let&rsquo;s see what those files are storing.</p><p>When exploring this kind of topics, it is always interesting to first search into the man pages before starting browsing the web. The 5th section of the manual is dedicated to &ldquo;file formats and conventions&rdquo; and seems a good place to start.</p><h3 id=locale-archive>locale-archive</h3><pre><code>$ man -wK 5 '/usr/lib/locale/locale-archive'
-</code></pre><p>Sends us to <code>locale(5)</code> where we can read:</p><pre><code>The  locale  definition file contains all the information that the localedef(1) command needs to convert it into the binary locale data‐base.
-</code></pre><p>The page also sends us to <code>locale(7)</code> for more explanation about those informations:</p><pre><code>A  locale is a set of language and cultural rules. These cover aspects such as language for messages, different character sets, lexico‐graphic conventions, and so on. A program needs to be able to determine its locale and act accordingly to be portable to different cultures.
-</code></pre><p>So the <code>who</code> command read from this file, probably using the <code>setlocale(3)</code> function, to find out how the information should be formated and displayed.</p><p>We can actually check it:</p><pre><code>$ LC_ALL='fr_FR.utf8' who
+</code></pre><p>We can quickly filter what is interesting and what is not. The first files two files <code>/etc/ld.so.cache</code>, <code>/usr/lib/libc.so.6</code> are shared libraries loaded by the process, those are interesting us.</p>
+<p>Then <code>/usr/lib/locale/locale-archive</code>, <code>/var/run/utmp</code> and <code>/etc/localtime</code> are opened. Let&rsquo;s see what those files are storing.</p>
+<p>When exploring this kind of topics, it is always interesting to first search into the man pages before starting browsing the web. The 5th section of the manual is dedicated to &ldquo;file formats and conventions&rdquo; and seems a good place to start.</p>
+<h3 id=locale-archive>locale-archive</h3>
+<pre tabindex=0><code>$ man -wK 5 '/usr/lib/locale/locale-archive'
+</code></pre><p>Sends us to <code>locale(5)</code> where we can read:</p>
+<pre tabindex=0><code>The  locale  definition file contains all the information that the localedef(1) command needs to convert it into the binary locale data‐base.
+</code></pre><p>The page also sends us to <code>locale(7)</code> for more explanation about those informations:</p>
+<pre tabindex=0><code>A  locale is a set of language and cultural rules. These cover aspects such as language for messages, different character sets, lexico‐graphic conventions, and so on. A program needs to be able to determine its locale and act accordingly to be portable to different cultures.
+</code></pre><p>So the <code>who</code> command read from this file, probably using the <code>setlocale(3)</code> function, to find out how the information should be formated and displayed.</p>
+<p>We can actually check it:</p>
+<pre tabindex=0><code>$ LC_ALL='fr_FR.utf8' who
 gauthier tty2         Sep  2 11:38 (:1)
 gauthier pts/1        Sep  2 12:11 (tmux(2445).%0)
 gauthier pts/2        Sep  2 12:37 (tmux(2445).%1)
 gauthier pts/3        Sep  2 13:04 (tmux(2445).%2)
-</code></pre><p>Indeed, the date is is not formated the same way!</p><h3 id=localtime>localtime</h3><pre><code>$ man -wK 5 '/etc/localtime'
-</code></pre><p>Sends us to <code>localtime(5)</code> which explains:</p><pre><code>The /etc/localtime file configures the system-wide timezone of the local system that is used by applications for presentation to the user.
-</code></pre><p>Probably <code>who</code> uses this file (or uses a function that is using this file) to print timestamps (columns 4 and 5 of <code>who</code>'s output) using the correct timezone configured by the user.</p><h3 id=utmp>utmp</h3><p>Finally comes <code>/var/run/utmp</code>:</p><pre><code>$ man -wK 5 '/var/run/utmp'
+</code></pre><p>Indeed, the date is is not formated the same way!</p>
+<h3 id=localtime>localtime</h3>
+<pre tabindex=0><code>$ man -wK 5 '/etc/localtime'
+</code></pre><p>Sends us to <code>localtime(5)</code> which explains:</p>
+<pre tabindex=0><code>The /etc/localtime file configures the system-wide timezone of the local system that is used by applications for presentation to the user.
+</code></pre><p>Probably <code>who</code> uses this file (or uses a function that is using this file) to print timestamps (columns 4 and 5 of <code>who</code>&rsquo;s output) using the correct timezone configured by the user.</p>
+<h3 id=utmp>utmp</h3>
+<p>Finally comes <code>/var/run/utmp</code>:</p>
+<pre tabindex=0><code>$ man -wK 5 '/var/run/utmp'
 /usr/share/man/man5/utmp.5.gz
-</code></pre><p>Where we can read:</p><pre><code>The  utmp  file  allows  one to discover information about who is currently using the system.  There may be more users currently using the system, because not all programs use utmp logging.
-</code></pre><p>Great! We found where the <code>who</code> command is getting its data. It would be nice to be able to read this file to get those data without using the <code>who</code> command. Unfortunately:</p><pre><code>The file is a sequence of utmp structures, declared as follows in &lt;utmp.h&gt; (note that this is only one of several definitions around; details depend on the version of libc):
-</code></pre><p>At this point we understood what the <code>who</code> command is doing: it is reading <code>/var/run/utmp</code>, parsing the content and formating it nicely. Let&rsquo;s see if we can reproduce this simple behavior.</p><h3 id=my-own-who>My own <code>who</code></h3><p>What we simply need to do is: open <code>/var/run/utmp</code>, read <code>n</code> bytes (where <code>n</code> is the size of the <code>utmp</code> structure), print the info contained in each structure, continue until we reach the end of the file. With a bit of formating, we can even make it look like the original <code>who</code> command.</p><pre><code>#include &lt;utmp.h&gt;
+</code></pre><p>Where we can read:</p>
+<pre tabindex=0><code>The  utmp  file  allows  one to discover information about who is currently using the system.  There may be more users currently using the system, because not all programs use utmp logging.
+</code></pre><p>Great! We found where the <code>who</code> command is getting its data. It would be nice to be able to read this file to get those data without using the <code>who</code> command. Unfortunately:</p>
+<pre tabindex=0><code>The file is a sequence of utmp structures, declared as follows in &lt;utmp.h&gt; (note that this is only one of several definitions around; details depend on the version of libc):
+</code></pre><p>At this point we understood what the <code>who</code> command is doing: it is reading <code>/var/run/utmp</code>, parsing the content and formating it nicely. Let&rsquo;s see if we can reproduce this simple behavior.</p>
+<h3 id=my-own-who>My own <code>who</code></h3>
+<p>What we simply need to do is: open <code>/var/run/utmp</code>, read <code>n</code> bytes (where <code>n</code> is the size of the <code>utmp</code> structure), print the info contained in each structure, continue until we reach the end of the file. With a bit of formating, we can even make it look like the original <code>who</code> command.</p>
+<pre tabindex=0><code>#include &lt;utmp.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;time.h&gt;
@@ -63,18 +137,31 @@ int main() {
 
   fclose(file);
 }
-</code></pre><pre><code>$ clang -o who who.c
+</code></pre><pre tabindex=0><code>$ clang -o who who.c
 $ ./who
 gauthier tty2         2020-08-31 10:02 (tty2)
 gauthier pts/1        2020-08-31 10:03 (tmux(2220).%0)
 gauthier pts/2        2020-08-31 10:08 (tmux(2220).%1)
 gauthier pts/3        2020-08-31 10:33 (tmux(2220).%5)
-</code></pre><p>TADA!</p><p>We can also check with <code>strace</code> if the behavior is the same:</p><pre><code>$ strace ./who 2&gt;&amp;1 | grep -e open
+</code></pre><p>TADA!</p>
+<p>We can also check with <code>strace</code> if the behavior is the same:</p>
+<pre tabindex=0><code>$ strace ./who 2&gt;&amp;1 | grep -e open
 openat(AT_FDCWD, &quot;/etc/ld.so.cache&quot;, O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, &quot;/usr/lib/libc.so.6&quot;, O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, &quot;/usr/lib/locale/locale-archive&quot;, O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, &quot;/var/run/utmp&quot;, O_RDONLY) = 3
 openat(AT_FDCWD, &quot;/etc/localtime&quot;, O_RDONLY|O_CLOEXEC) = 4
-</code></pre><p>Indeed our program is doing the same as the original <code>who</code>.</p><p>Of course, this only mocks the most basic features of the <code>who</code> command and doesn&rsquo;t handle any option, like the famous <code>who am i</code> or <code>who mom hates</code>.</p><h3 id=going-further>Going further</h3><p>There is still a lot to say about the <code>who</code> command. We could for example mention the <code>lastlog</code> command and its corresponding file <code>/var/log/wtmp</code>, dig into the <code>utmp</code> structure, or just try to understand what <code>utmp</code> stands for.</p></div><footer><p>&copy; 2020 Gauthier Jolly.
+</code></pre><p>Indeed our program is doing the same as the original <code>who</code>.</p>
+<p>Of course, this only mocks the most basic features of the <code>who</code> command and doesn&rsquo;t handle any option, like the famous <code>who am i</code> or <code>who mom hates</code>.</p>
+<h3 id=going-further>Going further</h3>
+<p>There is still a lot to say about the <code>who</code> command. We could for example mention the <code>lastlog</code> command and its corresponding file <code>/var/log/wtmp</code>, dig into the <code>utmp</code> structure, or just try to understand what <code>utmp</code> stands for.</p>
+</div>
+<footer>
+<p>
+&copy; 2020 Gauthier Jolly.
 Powered by <a href=https://gohugo.io/>Hugo</a>
-using the <a href=https://github.com/koirand/pulp/>pulp</a> theme.</p></footer></body></html>
+using the <a href=https://github.com/koirand/pulp/>pulp</a> theme.
+</p>
+</footer>
+</body>
+</html>
