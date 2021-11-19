@@ -21,7 +21,7 @@ Boot Linux without Grub - Gauthier Jolly
 <meta itemprop=name content="Boot Linux without Grub">
 <meta itemprop=description content="How to take advantage of the kernel's EFI stub to boot without any bootloader"><meta itemprop=datePublished content="2021-11-19T11:10:00+00:00">
 <meta itemprop=dateModified content="2021-11-19T11:10:00+00:00">
-<meta itemprop=wordCount content="513">
+<meta itemprop=wordCount content="509">
 <meta itemprop=keywords content="Linux,Kernel,Boot,"><meta name=twitter:card content="summary">
 <meta name=twitter:image content="/img/avatar.jpg">
 <meta name=twitter:title content="Boot Linux without Grub">
@@ -51,7 +51,7 @@ Boot Linux without Grub - Gauthier Jolly
 <p><strong>DISCLAIMER</strong>: This is only for fun and learning, I do not advise anyone to do that on their main system. Be safe, use a VM.</p>
 <p>To use UEFI with QEMU, just read <a href=https://powersj.io/posts/ubuntu-qemu-cli/#booting-with-uefi>powersj&rsquo;s excelent blog post</a>.</p>
 <p>First, check if your kernel config allows this:</p>
-<pre tabindex=0><code>cat /boot/config-${uname -r} | grep EFI_STUB
+<pre tabindex=0><code>$ cat /boot/config-${uname -r} | grep EFI_STUB
 CONFIG_EFI_STUB=y
 </code></pre><p>Then, copy the kernel and initrd to the EFI partition:</p>
 <pre tabindex=0><code>cp -v /boot/initrd.img-* /boot/efi/EFI/
@@ -95,11 +95,11 @@ vdb                       cidata
 <p>If something goes really wrong and the system doesn&rsquo;t boot, use <a href=./qemu_cheatsheet.md>this post</a> to mount the EFI partition locally and simply delete the Kernel&rsquo;s EFI from it. The new entry will just fail to find the EFI stub and fallback to the old boot entry.</p>
 <p>To delete a boot entry: <code>efibootmgr -b NUM -B</code></p>
 <h2 id=refs>Refs</h2>
-<p><a href=https://askubuntu.com/a/511019>https://askubuntu.com/a/511019</a> - The main source for this blog post
-<a href="https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923">https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923</a> - An undocumented issue
-<a href=https://powersj.io/posts/ubuntu-qemu-cli/>https://powersj.io/posts/ubuntu-qemu-cli/</a> - to know more about how to use QEMU
-<a href=https://docs.kernel.org/admin-guide/efi-stub.html>https://docs.kernel.org/admin-guide/efi-stub.html</a> - The official kernel doc about this kernel feature
-<a href=https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html>https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html</a> - more about Kernel command line</p>
+<p><a href=https://askubuntu.com/a/511019>https://askubuntu.com/a/511019</a> The main source for this blog post
+<a href="https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923">https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923</a> An undocumented issue
+<a href=https://powersj.io/posts/ubuntu-qemu-cli/>https://powersj.io/posts/ubuntu-qemu-cli/</a> to know more about how to use QEMU
+<a href=https://docs.kernel.org/admin-guide/efi-stub.html>https://docs.kernel.org/admin-guide/efi-stub.html</a> The official kernel doc about this kernel feature
+<a href=https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html>https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html</a> more about Kernel command line</p>
 </div>
 <footer>
 <p>
