@@ -21,7 +21,7 @@ Boot Linux without Grub - Gauthier Jolly
 <meta itemprop=name content="Boot Linux without Grub">
 <meta itemprop=description content="How to take advantage of the kernel's EFI stub to boot without any bootloader"><meta itemprop=datePublished content="2021-11-19T11:10:00+00:00">
 <meta itemprop=dateModified content="2021-11-19T11:10:00+00:00">
-<meta itemprop=wordCount content="509">
+<meta itemprop=wordCount content="500">
 <meta itemprop=keywords content="Linux,Kernel,Boot,"><meta name=twitter:card content="summary">
 <meta name=twitter:image content="/img/avatar.jpg">
 <meta name=twitter:title content="Boot Linux without Grub">
@@ -57,7 +57,7 @@ CONFIG_EFI_STUB=y
 <pre tabindex=0><code>cp -v /boot/initrd.img-* /boot/efi/EFI/
 cp -v /boot/vmlinuz-$(uname -r) /boot/efi/EFI/vmlinuz-$(uname -r).efi
 </code></pre><blockquote>
-<p>In theory, you can put those files wherever you want on the EFI partition (Ubuntu uses <code>/EFI/ubuntu</code> for example). Just be carefull about the length of the EFI stub path, [see this thread](I read that there was an issue with EFI ://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923).</p>
+<p>In theory, you can put those files wherever you want on the EFI partition (Ubuntu uses <code>/EFI/ubuntu</code> for example). Just be carefull about the length of the EFI stub path, <a href=https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI>see this thread</a>.</p>
 </blockquote>
 <p>Now we need to find out some information about the system:</p>
 <ul>
