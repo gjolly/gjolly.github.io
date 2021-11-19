@@ -20,7 +20,7 @@ To use UEFI with QEMU, just read [powersj's excelent blog post](https://powersj.
 First, check if your kernel config allows this:
 
 ```
-cat /boot/config-${uname -r} | grep EFI_STUB
+$ cat /boot/config-${uname -r} | grep EFI_STUB
 CONFIG_EFI_STUB=y
 ```
 
