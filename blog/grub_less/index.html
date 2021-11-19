@@ -129,11 +129,13 @@ EFI stub: Loaded initrd from command line option
 <p>If something goes really wrong and the system doesn&rsquo;t boot, use <a href=./qemu_cheatsheet.md>this post</a> to mount the EFI partition locally and simply delete the Kernel&rsquo;s EFI from it. The new entry will just fail to find the EFI stub and fallback to the old boot entry.</p>
 <p>To delete a boot entry: <code>efibootmgr -b NUM -B</code></p>
 <h2 id=refs>Refs</h2>
-<p><a href=https://askubuntu.com/a/511019>https://askubuntu.com/a/511019</a> The main source for this blog post
-<a href="https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923">https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923</a> An undocumented issue
-<a href=https://powersj.io/posts/ubuntu-qemu-cli/>https://powersj.io/posts/ubuntu-qemu-cli/</a> to know more about how to use QEMU
-<a href=https://docs.kernel.org/admin-guide/efi-stub.html>https://docs.kernel.org/admin-guide/efi-stub.html</a> The official Kernel doc about this Kernel feature
-<a href=https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html>https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html</a> more about Kernel command line</p>
+<ul>
+<li><a href=https://askubuntu.com/a/511019>https://askubuntu.com/a/511019</a> The main source for this blog post</li>
+<li><a href="https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923">https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923</a> An undocumented issue</li>
+<li><a href=https://powersj.io/posts/ubuntu-qemu-cli/>https://powersj.io/posts/ubuntu-qemu-cli/</a> to know more about how to use QEMU</li>
+<li><a href=https://docs.kernel.org/admin-guide/efi-stub.html>https://docs.kernel.org/admin-guide/efi-stub.html</a> The official Kernel doc about this Kernel feature</li>
+<li><a href=https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html>https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html</a> more about Kernel command line</li>
+</ul>
 </div>
 <footer>
 <p>
