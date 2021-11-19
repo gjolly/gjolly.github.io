@@ -1,7 +1,7 @@
 <!doctype html><html>
 <head>
 <title>
-Boot Linux without Grub - Gauthier Jolly
+Boot Linux without GRUB - Gauthier Jolly
 </title>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
@@ -12,24 +12,24 @@ Boot Linux without Grub - Gauthier Jolly
 <link rel=stylesheet href=/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB+BLd7VPoFFdCmg9OezbJR26lg/h+Wb3/zb8I=">
 <link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous>
 <link rel=stylesheet href=/css/custom.css>
-<meta property="og:title" content="Boot Linux without Grub">
-<meta property="og:description" content="How to take advantage of the kernel's EFI stub to boot without any bootloader">
+<meta property="og:title" content="Boot Linux without GRUB">
+<meta property="og:description" content="How to take advantage of the Kernel's EFI stub to boot without any bootloader">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/blog/grub_less/"><meta property="article:section" content="blog">
 <meta property="article:published_time" content="2021-11-19T11:10:00+00:00">
 <meta property="article:modified_time" content="2021-11-19T11:10:00+00:00">
-<meta itemprop=name content="Boot Linux without Grub">
-<meta itemprop=description content="How to take advantage of the kernel's EFI stub to boot without any bootloader"><meta itemprop=datePublished content="2021-11-19T11:10:00+00:00">
+<meta itemprop=name content="Boot Linux without GRUB">
+<meta itemprop=description content="How to take advantage of the Kernel's EFI stub to boot without any bootloader"><meta itemprop=datePublished content="2021-11-19T11:10:00+00:00">
 <meta itemprop=dateModified content="2021-11-19T11:10:00+00:00">
-<meta itemprop=wordCount content="500">
+<meta itemprop=wordCount content="655">
 <meta itemprop=keywords content="Linux,Kernel,Boot,"><meta name=twitter:card content="summary">
 <meta name=twitter:image content="/img/avatar.jpg">
-<meta name=twitter:title content="Boot Linux without Grub">
-<meta name=twitter:description content="How to take advantage of the kernel's EFI stub to boot without any bootloader"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:title content="Boot Linux without GRUB">
+<meta name=twitter:description content="How to take advantage of the Kernel's EFI stub to boot without any bootloader"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
-<h1>Boot Linux without Grub</h1>
+<h1>Boot Linux without GRUB</h1>
 <header>
 <div class=avatar>
 <img class=avatarMask src=/img/avatar.jpg alt>
@@ -46,14 +46,44 @@ Boot Linux without Grub - Gauthier Jolly
 </ul>
 </div>
 <div id=contentBody>
-<h1 id=boot-linux-without-grub>Boot Linux without Grub</h1>
-<p>To boot the Linux kernel, most disto use a bootloader and one of the most popular is Grub. But did you know you can directly boot the kernel without using a bootloader?</p>
+<h1 id=boot-linux-without-grub>Boot Linux without GRUB</h1>
+<p>To boot the Linux Kernel, most distro use a bootloader and one of the most popular is GRUB. But did you know you can directly boot the Kernel without using a bootloader?</p>
 <p><strong>DISCLAIMER</strong>: This is only for fun and learning, I do not advise anyone to do that on their main system. Be safe, use a VM.</p>
-<p>To use UEFI with QEMU, just read <a href=https://powersj.io/posts/ubuntu-qemu-cli/#booting-with-uefi>powersj&rsquo;s excelent blog post</a>.</p>
-<p>First, check if your kernel config allows this:</p>
-<pre tabindex=0><code>$ cat /boot/config-${uname -r} | grep EFI_STUB
+<h2 id=vm-setup>VM setup</h2>
+<p>Just a quick recap of what is needed (mostely stolen from <a href=https://powersj.io/posts/ubuntu-qemu-cli/#booting-with-uefi>powersj&rsquo;s excelent blog post</a>).</p>
+<p>Setup the user-data (for cloud-init) to be able to SSH into the VM:</p>
+<pre tabindex=0><code>cat &gt; user-data.yaml &lt;&lt;EOF
+#cloud-config
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAABIwJJJQEA3I7VUf3l5gSn5uavROsc5HRDpZ ...
+ssh_import_id:
+  - gh:&lt;github user&gt;
+  - lp:&lt;launchpad user&gt;
+EOF
+
+# cloud-localds is shipped in [cloud image utils](cloud-image-utils)
+cloud-localds seed.img user-data.yaml
+</code></pre><p>Copy the EFI vars to a temp place (they will get modified)</p>
+<pre tabindex=0><code>cp /usr/share/OVMF/OVMF_VARS.fd /tmp/
+</code></pre><p>Download an Ubuntu cloud-image and launch the VM with the cloud-init metadata and the EFI firemware.</p>
+<pre tabindex=0><code>curl -O http://cloud-images.ubuntu.com/releases/21.10/release/ubuntu-21.10-server-cloudimg-amd64.img
+qemu-system-x86_64 \
+  -nographic \
+  -cpu host \
+  -enable-kvm \
+  -smp 4 \
+  -m 4G \
+  -drive if=virtio,format=qcow2,file=ubuntu-21.10-server-cloudimg-amd64.img \
+  -drive if=virtio,format=raw,file=./seed.img \
+  -device virtio-net-pci,netdev=net0 --netdev user,id=net0,hostfwd=tcp::2222-:22 \
+  -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE.fd \
+  -drive if=pflash,format=raw,file=/tmp/OVMF_VARS.fd
+</code></pre><p>To SSH into the VM: <code>ssh ubuntu@0.0.0.0 -p 2222</code></p>
+<h2 id=in-practice>In practice</h2>
+<p>First, check if your Kernel config allows this:</p>
+<pre tabindex=0><code>$ cat /boot/config-$(uname -r) [|](|) grep EFI_STUB
 CONFIG_EFI_STUB=y
-</code></pre><p>Then, copy the kernel and initrd to the EFI partition:</p>
+</code></pre><p>Then, copy the Kernel and initrd to the EFI partition:</p>
 <pre tabindex=0><code>cp -v /boot/initrd.img-* /boot/efi/EFI/
 cp -v /boot/vmlinuz-$(uname -r) /boot/efi/EFI/vmlinuz-$(uname -r).efi
 </code></pre><blockquote>
@@ -77,28 +107,32 @@ vda
 ├─vda14
 └─vda15 /boot/efi         UEFI
 vdb                       cidata
-</code></pre><p>On this system, the root filesystem is <code>/dev/vda1</code> and the <code>EFI</code> partition is on the same device <code>/dev/vda</code> on partition number 15.</p>
+</code></pre><p>On this system, the root filesystem is in <code>/dev/vda1</code> and the <code>EFI</code> partition is on the same device <code>/dev/vda</code> on partition number 15.</p>
 <p>Now, let&rsquo;s add a new boot entry in the UEFI boot manager</p>
 <pre tabindex=0><code>efibootmgr --create --disk /dev/vda --part 15 --label grub-less --loader &quot;\EFI\vmlinuz-$(uname -r).efi&quot; -u &quot;root=/dev/vda1 initrd=\\EFI\\initrd.img-$(uname -r) ro console=ttyS0&quot;
 </code></pre><ul>
 <li><code>efibootmgr</code> is a CLI tool to manipulate the UEFI boot manager (no one could have guessed it :D)</li>
 <li><code>--create</code> indicates we want to create a new boot entry</li>
-<li><code>--disk</code> specifies the disk containing the bootloader (here the kernel)</li>
-<li><code>--part</code> is the partition where the boot loader (here the kernel) is</li>
+<li><code>--disk</code> specifies the disk containing the bootloader (here the Kernel)</li>
+<li><code>--part</code> is the partition where the boot loader (here the Kernel) is</li>
 <li><code>--label</code> is simply the name we want to give to this new boot entry</li>
-<li><code>--loader</code> is the actual bootloader we want to call, here it is the kernel we previously copied</li>
+<li><code>--loader</code> is the actual bootloader we want to call, here it is the Kernel we previously copied</li>
 <li><code>-u</code> is used to pass arguments to the boot loader. Here we pass the location of <code>initrd</code> and the other usual Kernel command line arguments (check <code>/proc/cmdline</code> to find out which cmdline arguments are currently in use)</li>
 </ul>
-<p>The current boot entries can then be checked with: <code>efibootmgr</code> (no args). The new boot entry we just created should already be the first one in the bootorder list.</p>
-<p>Reboot!! The system should start directly without going through the Grub menu.</p>
-<h2 id=troubleshooting>Troubleshooting</h2>
+<p>The current boot entries can then be checked with: <code>efibootmgr</code> (no arg). The new boot entry we just created should already be the first one in the bootorder list.</p>
+<p>Reboot!! The system should start directly without going through the GRUB.</p>
+<p>At the very beginning of the serial console, we can find:</p>
+<pre tabindex=0><code>BdsDxe: loading Boot0008 &quot;grub-less&quot; from HD(15,GPT,CB5D0560-825B-4575-A9E3-F3263C410054,0x2800,0x35000)/\EFI\vmlinuz-5.13.0-20-generic.efi
+BdsDxe: starting Boot0008 &quot;grub-less&quot; from HD(15,GPT,CB5D0560-825B-4575-A9E3-F3263C410054,0x2800,0x35000)/\EFI\vmlinuz-5.13.0-20-generic.efi
+EFI stub: Loaded initrd from command line option
+</code></pre><h2 id=troubleshooting>Troubleshooting</h2>
 <p>If something goes really wrong and the system doesn&rsquo;t boot, use <a href=./qemu_cheatsheet.md>this post</a> to mount the EFI partition locally and simply delete the Kernel&rsquo;s EFI from it. The new entry will just fail to find the EFI stub and fallback to the old boot entry.</p>
 <p>To delete a boot entry: <code>efibootmgr -b NUM -B</code></p>
 <h2 id=refs>Refs</h2>
 <p><a href=https://askubuntu.com/a/511019>https://askubuntu.com/a/511019</a> The main source for this blog post
 <a href="https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923">https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923</a> An undocumented issue
 <a href=https://powersj.io/posts/ubuntu-qemu-cli/>https://powersj.io/posts/ubuntu-qemu-cli/</a> to know more about how to use QEMU
-<a href=https://docs.kernel.org/admin-guide/efi-stub.html>https://docs.kernel.org/admin-guide/efi-stub.html</a> The official kernel doc about this kernel feature
+<a href=https://docs.kernel.org/admin-guide/efi-stub.html>https://docs.kernel.org/admin-guide/efi-stub.html</a> The official Kernel doc about this Kernel feature
 <a href=https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html>https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html</a> more about Kernel command line</p>
 </div>
 <footer>
