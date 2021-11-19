@@ -135,8 +135,8 @@ To delete a boot entry: `efibootmgr -b NUM -B`
 
 ## Refs
 
-https://askubuntu.com/a/511019 The main source for this blog post
-https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923 An undocumented issue
-https://powersj.io/posts/ubuntu-qemu-cli/ to know more about how to use QEMU
-https://docs.kernel.org/admin-guide/efi-stub.html The official Kernel doc about this Kernel feature
-https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html more about Kernel command line
+ * https://askubuntu.com/a/511019 The main source for this blog post
+ * https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923 An undocumented issue
+ * https://powersj.io/posts/ubuntu-qemu-cli/ to know more about how to use QEMU
+ * https://docs.kernel.org/admin-guide/efi-stub.html The official Kernel doc about this Kernel feature
+ * https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html more about Kernel command line
