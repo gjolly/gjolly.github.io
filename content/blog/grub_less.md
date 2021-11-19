@@ -31,7 +31,7 @@ cp -v /boot/initrd.img-* /boot/efi/EFI/
 cp -v /boot/vmlinuz-$(uname -r) /boot/efi/EFI/vmlinuz-$(uname -r).efi
 ```
 
-> In theory, you can put those files wherever you want on the EFI partition (Ubuntu uses `/EFI/ubuntu` for example). Just be carefull about the length of the EFI stub path, [see this thread](I read that there was an issue with EFI ://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI&p=309923&viewfull=1#post309923).
+> In theory, you can put those files wherever you want on the EFI partition (Ubuntu uses `/EFI/ubuntu` for example). Just be carefull about the length of the EFI stub path, [see this thread](https://www.kubuntuforums.net/showthread.php?60193-Going-GRUB-less-with-UEFI).
 
 Now we need to find out some information about the system:
  - On which device (and partition) is located the root filesystem?
