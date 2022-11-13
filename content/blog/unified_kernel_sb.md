@@ -69,7 +69,7 @@ sudo mv kernel.efi /boot/efi/EFI/ubuntu
 Add a new boot entry to boot on this kernel, example (make sure to point change `--disk` and `--part` to your ESP):
 
 ```
-sudo efibootmgr --create --disk /dev/vda --part 15 --label 'Ubuntu 5.15.0-52-generic' --loader "\EFI\ubuntu\shimx64.efi" -u "\EFI\ubuntu\kernel.efi"
+sudo efibootmgr --create --disk /dev/vda --part 15 --label "Ubuntu $(uname -r)" --loader "\EFI\ubuntu\shimx64.efi" -u "\EFI\ubuntu\kernel.efi"
 ```
 
 ## Limitations/Next
