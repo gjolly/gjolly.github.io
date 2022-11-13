@@ -72,6 +72,60 @@ Add a new boot entry to boot on this kernel, example (make sure to point change 
 sudo efibootmgr --create --disk /dev/vda --part 15 --label "Ubuntu $(uname -r)" --loader "\EFI\ubuntu\shimx64.efi" -u "\EFI\ubuntu\kernel.efi"
 ```
 
-## Limitations/Next
+## Next
 
-What will happen when a new kernel will be released? With this example, we would stay blocked on the old kernel. To make it production ready, we need to automated those steps to run them everytime a new kernel is installed.
+To make it persistent:
+
+Make the kernel hook for `ubuntu-core-initramfs` use your keys:
+```
+sudo mkdir /etc/custom-mok/
+sudo mv MOK.priv MOK.pem /etc/custom-mok/
+```
+
+and modify the hook itself at `/etc/kernel/postinst.d/ubuntu-core-initramfs`:
+```
+ubuntu-core-initramfs create-efi --key /etc/custom-mok/MOK.priv --cert /etc/custom-mok/MOK.pem --kernelver $version
+```
+
+create two new hooks:
+```
+cat /etc/kernel/postinst.d/zz-update-efi-boot
+#!/bin/sh
+set -e
+
+version="$1"
+
+command -v efibootmgr >/dev/null 2>&1 || exit 0
+
+part_dev="$(blkid | grep 'LABEL_FATBOOT="UEFI"' | cut -f1 -d':')"
+disk="/dev/$(lsblk -ndo pkname ${part_dev})"
+
+part_name=${part_dev##/dev/}
+part_num="$(cat /sys/class/block/${part_name}/partition)"
+
+# Let's not duplicate the entry if it already exist
+efibootmgr | grep -q "$version" && exit 0
+
+echo "adding new EFI boot entry"
+efibootmgr -q --create --disk "$disk" --part "$part_num" --label "Ubuntu $version" --loader "\EFI\ubuntu\shimx64.efi" -u "\EFI\ubuntu\kernel.efi-$version"
+```
+
+```
+cat /etc/kernel/postrm.d/zz-update-efi-boot
+#!/bin/sh
+set -e
+
+version="$1"
+
+command -v efibootmgr >/dev/null 2>&1 || exit 0
+
+BOOT_NUM=$(efibootmgr | grep "$version" | cut -f1 -d'*' | sed 's/Boot\(.*\)/\1/')
+
+if [ -f "$BOOT_NUM" ]; then
+    exit 0
+fi
+
+efibootmgr -q -b "$BOOT_NUM" -B
+```
+
+and make sure it they are executable.
