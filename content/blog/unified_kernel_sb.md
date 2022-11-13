@@ -16,6 +16,7 @@ FDE protect your data at rest and Secureboot makes sure what you boot is trusted
 ## The flow
 
 In order to decrypt the root filesystem, the kernel uses a initial ram disk (initramfs). The initramfs provides an temporary filesystem from which extra kernel modules can be loaded, it also contains a set of scripts used to boot the system including scripts to decrypt the user's root filesystem.
+
 This initramfs image is a file stored un-encrypted next to the kernel image. However, unlike the kernel image, it is not signed by the kernel publisher as the iniramfs is generated locally and can be modified by the user. Thus, anyone with physical access to the user's drive can inject a malicious initramfs that would log the user's passphrase and thus make FDE useless.
 
 ## How to fix it
