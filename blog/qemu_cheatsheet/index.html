@@ -1,74 +1,12 @@
-<!doctype html><html>
-<head>
-<title>
-QEMU cheatsheet - Gauthier Jolly
-</title>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=author content="Gauthier Jolly">
-<link rel="shortcut icon" type=image/x-icon href=/img/terminal-sign.svg>
-<link rel=stylesheet href=/style.min.39acacc5d2051426f655a6b7fbf4786fbd0fd8fffd09322c9b497ef0f7439b3f.css integrity="sha256-OaysxdIFFCb2Vaa3+/R4b70P2P/9CTIsm0l+8PdDmz8=">
-<link rel=stylesheet href=/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB+BLd7VPoFFdCmg9OezbJR26lg/h+Wb3/zb8I=">
-<link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous>
-<link rel=stylesheet href=/css/custom.css>
-<meta property="og:title" content="QEMU cheatsheet">
-<meta property="og:description" content="How to use QEMU and a few tricks">
-<meta property="og:type" content="article">
-<meta property="og:url" content="/blog/qemu_cheatsheet/"><meta property="article:section" content="blog">
-<meta property="article:published_time" content="2021-11-19T11:10:00+00:00">
-<meta property="article:modified_time" content="2021-11-19T11:10:00+00:00">
-<meta itemprop=name content="QEMU cheatsheet">
-<meta itemprop=description content="How to use QEMU and a few tricks"><meta itemprop=datePublished content="2021-11-19T11:10:00+00:00">
-<meta itemprop=dateModified content="2021-11-19T11:10:00+00:00">
-<meta itemprop=wordCount content="107">
-<meta itemprop=keywords content="Linux,QEMU,"><meta name=twitter:card content="summary">
-<meta name=twitter:image content="/img/avatar.jpg">
-<meta name=twitter:title content="QEMU cheatsheet">
-<meta name=twitter:description content="How to use QEMU and a few tricks"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<h1>QEMU cheatsheet</h1>
-<header>
-<div class=avatar>
-<img class=avatarMask src=/img/avatar.jpg alt>
-<a href><img class=avatar-border src=/img/avatar-border.svg alt></a>
-</div>
-<h2><a class=author href>Gauthier Jolly</a></h2>
-</header>
-<p class=date>November 19, 2021</p>
-<div id=tags>
-<ul>
-<li><a href=/tags/linux/>Linux</a></li>
-<li><a href=/tags/qemu/>QEMU</a></li>
-</ul>
-</div>
-<div id=contentBody>
-<h1 id=qemu-cheatsheet>QEMU cheatsheet</h1>
-<h2 id=the-basics>The basics</h2>
-<p><a href=https://powersj.io/posts/ubuntu-qemu-cli/>https://powersj.io/posts/ubuntu-qemu-cli/</a></p>
-<h2 id=mount-disk-images>Mount disk images</h2>
-<p>It is ofter very convenient to mount a FS locally to be able to debug and/or fix a problem with a broken disk.</p>
-<p>Pre-requisite to everything: <code>mkdir /tmp/rootfs</code></p>
-<p>To know the format of your disk: <code>qemu-img info disk.img</code> (note that <code>qemu-img</code> can output JSON to automate your stuff)</p>
-<h3 id=raw-disk-images>Raw disk images</h3>
-<pre tabindex=0><code>losetup -f -P disk.img
+<!doctype html><html><head><title>QEMU cheatsheet - Gauthier Jolly</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Gauthier Jolly"><link rel="shortcut icon" type=image/x-icon href=/img/terminal-sign.svg><link rel=stylesheet href=/style.min.39acacc5d2051426f655a6b7fbf4786fbd0fd8fffd09322c9b497ef0f7439b3f.css integrity="sha256-OaysxdIFFCb2Vaa3+/R4b70P2P/9CTIsm0l+8PdDmz8="><link rel=stylesheet href=/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB+BLd7VPoFFdCmg9OezbJR26lg/h+Wb3/zb8I="><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.8.1/css/all.css integrity=sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf crossorigin=anonymous><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="QEMU cheatsheet"><meta property="og:description" content="How to use QEMU and a few tricks"><meta property="og:type" content="article"><meta property="og:url" content="/blog/qemu_cheatsheet/"><meta property="article:section" content="blog"><meta property="article:published_time" content="2021-11-19T11:10:00+00:00"><meta property="article:modified_time" content="2021-11-19T11:10:00+00:00"><meta itemprop=name content="QEMU cheatsheet"><meta itemprop=description content="How to use QEMU and a few tricks"><meta itemprop=datePublished content="2021-11-19T11:10:00+00:00"><meta itemprop=dateModified content="2021-11-19T11:10:00+00:00"><meta itemprop=wordCount content="107"><meta itemprop=keywords content="Linux,QEMU,"><meta name=twitter:card content="summary"><meta name=twitter:image content="/img/avatar.jpg"><meta name=twitter:title content="QEMU cheatsheet"><meta name=twitter:description content="How to use QEMU and a few tricks"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><h1>QEMU cheatsheet</h1><header><div class=avatar><img class=avatarMask src=/img/avatar.jpg alt>
+<a href><img class=avatar-border src=/img/avatar-border.svg alt></a></div><h2><a class=author href>Gauthier Jolly</a></h2></header><p class=date>November 19, 2021</p><div id=tags><ul><li><a href=/tags/linux/>Linux</a></li><li><a href=/tags/qemu/>QEMU</a></li></ul></div><div id=contentBody><h1 id=qemu-cheatsheet>QEMU cheatsheet</h1><h2 id=the-basics>The basics</h2><p><a href=https://powersj.io/posts/ubuntu-qemu-cli/>https://powersj.io/posts/ubuntu-qemu-cli/</a></p><h2 id=mount-disk-images>Mount disk images</h2><p>It is ofter very convenient to mount a FS locally to be able to debug and/or fix a problem with a broken disk.</p><p>Pre-requisite to everything: <code>mkdir /tmp/rootfs</code></p><p>To know the format of your disk: <code>qemu-img info disk.img</code> (note that <code>qemu-img</code> can output JSON to automate your stuff)</p><h3 id=raw-disk-images>Raw disk images</h3><pre tabindex=0><code>losetup -f -P disk.img
 losetup -l | grep -v snap # to find the loop device you just created and yeah those snaps....
 mount /dev/loopXpX /tmp/rootfs
-</code></pre><h3 id=for-anything-else-qcow2-vhdvpc-etc>For anything else (QCOW2, VHD/VPC, etc&mldr;)</h3>
-<pre tabindex=0><code>modprobe nbd
+</code></pre><h3 id=for-anything-else-qcow2-vhdvpc-etc>For anything else (QCOW2, VHD/VPC, etc&mldr;)</h3><pre tabindex=0><code>modprobe nbd
 qemu-nbd --connect=/dev/nbd0 disk.img
 fdisk /dev/nbd0 -l # to find your partition
 mount /dev/nbd0pX /tmp/rootfs
-</code></pre>
-</div>
-<footer>
-<p>
-&copy; 2020 Gauthier Jolly.
+</code></pre></div><footer><p>&copy; 2020 Gauthier Jolly.
 Powered by <a href=https://gohugo.io/>Hugo</a>
-using the <a href=https://github.com/koirand/pulp/>pulp</a> theme.
-</p>
-</footer>
-</body>
-</html>
+using the <a href=https://github.com/koirand/pulp/>pulp</a> theme.</p></footer></body></html>
