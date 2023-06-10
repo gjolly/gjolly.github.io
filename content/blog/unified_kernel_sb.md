@@ -1,13 +1,9 @@
-+++
-date = 2022-11-13T09:10:00Z
-title = "FDE, Secureboot and unified kernel image"
-description = "Full Disk Encryption on most Linux distro has a major security flow. Why? How to fix it?"
-slug = ""
-tags = ["Linux", "Kernel", "Boot", "Ubuntu"]
-categories = []
-externalLink = ""
-series = []
-+++
+---
+date: 2022-11-13T09:10:00Z
+title: "FDE, Secureboot and unified kernel image"
+description: "Full Disk Encryption on most Linux distro has a major security flow. Why? How to fix it?"
+tags: ["Linux", "Kernel", "Boot", "Ubuntu"]
+---
 
 # Full Disk Encryption, Secureboot and Unified Kernel Image
 
@@ -31,7 +27,7 @@ On systems using `mkinitcpio` or `dracut` see this article: https://wiki.archlin
 
 To create the unified EFI binary:
 
-```
+```bash
 sudo add-apt-repository ppa:snappy-dev/image
 sudo apt-get -y install ubuntu-core-initramfs
 sudo ubuntu-core-initramfs create-efi --unsigned --output "kernel.efi.unsigned" \
@@ -43,7 +39,7 @@ sudo ubuntu-core-initramfs create-efi --unsigned --output "kernel.efi.unsigned" 
 
 Create and enroll a new MOK:
 
-```
+```bash
 # You can let everything as default, or customize the fields, it doesn't matter
 openssl req -new -x509 -newkey rsa:2048 \
         -nodes -days 36500 -outform DER \
@@ -57,19 +53,19 @@ Restart your system and follow the instructions to enroll the key.
 
 Sign the Kernel EFI:
 
-```
+```bash
 sudo sbsign --key MOK.priv --cert MOK.pem kernel.efi.unsigned --output kernel.efi
 ```
 
 Move it do the ESP (or to the /boot partition), example:
 
-```
+```bash
 sudo mv kernel.efi /boot/efi/EFI/ubuntu
 ```
 
 Add a new boot entry to boot on this kernel, example (make sure to point change `--disk` and `--part` to your ESP):
 
-```
+```bash
 sudo efibootmgr --create --disk /dev/vda --part 15 --label "Ubuntu $(uname -r)" --loader "\EFI\ubuntu\shimx64.efi" -u "\EFI\ubuntu\kernel.efi"
 ```
 
@@ -78,18 +74,21 @@ sudo efibootmgr --create --disk /dev/vda --part 15 --label "Ubuntu $(uname -r)" 
 To make it persistent:
 
 Make the kernel hook for `ubuntu-core-initramfs` use your keys:
-```
+
+```bash
 sudo mkdir /etc/custom-mok/
 sudo mv MOK.priv MOK.pem /etc/custom-mok/
 ```
 
 and modify the hook itself at `/etc/kernel/postinst.d/ubuntu-core-initramfs`:
-```
+
+```bash
 ubuntu-core-initramfs create-efi --key /etc/custom-mok/MOK.priv --cert /etc/custom-mok/MOK.pem --kernelver $version
 ```
 
 create two new hooks:
-```
+
+```bash
 cat /etc/kernel/postinst.d/zz-update-efi-boot
 #!/bin/sh
 set -e
@@ -111,7 +110,7 @@ echo "adding new EFI boot entry"
 efibootmgr -q --create --disk "$disk" --part "$part_num" --label "Ubuntu $version" --loader "\EFI\ubuntu\shimx64.efi" -u "\EFI\ubuntu\kernel.efi-$version"
 ```
 
-```
+```bash
 cat /etc/kernel/postrm.d/zz-update-efi-boot
 #!/bin/sh
 set -e

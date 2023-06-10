@@ -13,7 +13,7 @@ series = []
 
 I recently enabled the Firewall on my desktop on Ubuntu. I probably did a quick lookup online to find out that `sudo ufw enable` was enough to enable it. I entered the command and forgot about it.
 
-```
+```bash
 $ sudo ufw enable
 Firewall is active and enabled on system startup
 ```
@@ -38,7 +38,7 @@ A very cool feature of `ufw` is the notion of `app`. An `app` is defined by a co
 
 On my system I already had the `OpenSSH` app configured:
 
-```
+```bash
 $ cat /etc/ufw/applications.d/openssh-server
 [OpenSSH]
 title=Secure shell server, an rshd replacement
@@ -48,6 +48,6 @@ ports=22/tcp
 
 Indeed, on Ubuntu, this configuration file is shipped with the `openssh-server` package. Now to enable `OpenSSH` on tailscale for both IPv4 and IPv6, I can simply run:
 
-```
+```bash
 sudo ufw allow in on tailscale0 from any to any app OpenSSH
 ```

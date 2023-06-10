@@ -21,7 +21,7 @@ Just a quick recap of what is needed (mostely stolen from [powersj's excelent bl
 
 Setup the user-data (for cloud-init) to be able to SSH into the VM:
 
-```
+```bash
 cat > user-data.yaml <<EOF
 #cloud-config
 ssh_authorized_keys:
@@ -37,13 +37,13 @@ cloud-localds seed.img user-data.yaml
 
 Copy the EFI vars to a temp place (they will get modified)
 
-```
+```bash
 cp /usr/share/OVMF/OVMF_VARS.fd /tmp/
 ```
 
 Download an Ubuntu cloud-image and launch the VM with the cloud-init metadata and the EFI firemware.
 
-```
+```bash
 curl -O http://cloud-images.ubuntu.com/releases/21.10/release/ubuntu-21.10-server-cloudimg-amd64.img
 qemu-system-x86_64 \
   -nographic \
@@ -64,7 +64,7 @@ To SSH into the VM: `ssh ubuntu@0.0.0.0 -p 2222`
 
 First, check if your Kernel config allows this:
 
-```
+```bash
 $ cat /boot/config-$(uname -r) [|](|) grep EFI_STUB
 CONFIG_EFI_STUB=y
 ```
