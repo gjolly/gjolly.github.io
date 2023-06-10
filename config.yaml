@@ -45,11 +45,11 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "img/terminal-sign.svg"
+    # favicon16x16: "img/favicon.ico"
+    # favicon32x32: "img/favicon.ico"
+    # apple_touch_icon: "<link / abs url>"
+    # safari_pinned_tab: "<link / abs url>"
 
   label:
     text: "Home"
@@ -101,9 +101,9 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
+    - identifier: blog
+      name: blog
+      url: /blog/
       weight: 10
     - identifier: tags
       name: tags
