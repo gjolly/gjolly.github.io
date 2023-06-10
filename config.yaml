@@ -1,4 +1,4 @@
-baseurl: ""
+baseurl: "https://gauthier.uk"
 title: Gauthier Jolly
 theme: PaperMod
 canonifyurls: true
@@ -85,7 +85,7 @@ params:
       url: "https://www.linkedin.com/in/gauthier-jolly/"
 
   cover:
-    hidden: true # hide everywhere but not in structured data
+    hidden: false # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
