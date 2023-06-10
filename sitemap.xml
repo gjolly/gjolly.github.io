@@ -2,54 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/blog/</loc>
+    <loc>https://gauthier.uk/blog/genesis/</loc>
+    <lastmod>2023-06-09T09:10:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gauthier.uk/blog/</loc>
+    <lastmod>2023-06-09T09:10:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gauthier.uk/</loc>
+    <lastmod>2023-06-09T09:10:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gauthier.uk/tags/linux/</loc>
+    <lastmod>2023-06-09T09:10:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gauthier.uk/tags/</loc>
+    <lastmod>2023-06-09T09:10:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gauthier.uk/tags/ubuntu/</loc>
+    <lastmod>2023-06-09T09:10:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gauthier.uk/tags/boot/</loc>
     <lastmod>2022-11-13T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/boot/</loc>
+    <loc>https://gauthier.uk/blog/unified_kernel_sb/</loc>
     <lastmod>2022-11-13T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/unified_kernel_sb/</loc>
+    <loc>https://gauthier.uk/tags/kernel/</loc>
     <lastmod>2022-11-13T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2022-11-13T09:10:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/kernel/</loc>
-    <lastmod>2022-11-13T09:10:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/linux/</loc>
-    <lastmod>2022-11-13T09:10:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-11-13T09:10:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/ubuntu/</loc>
-    <lastmod>2022-11-13T09:10:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/grub_less/</loc>
+    <loc>https://gauthier.uk/blog/grub_less/</loc>
     <lastmod>2021-11-19T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/qemu/</loc>
+    <loc>https://gauthier.uk/tags/qemu/</loc>
     <lastmod>2021-11-19T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/qemu_cheatsheet/</loc>
+    <loc>https://gauthier.uk/blog/qemu_cheatsheet/</loc>
     <lastmod>2021-11-19T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/ufw/</loc>
+    <loc>https://gauthier.uk/blog/ufw/</loc>
     <lastmod>2021-11-14T13:10:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/security/</loc>
+    <loc>https://gauthier.uk/tags/security/</loc>
     <lastmod>2021-11-14T13:10:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/who/</loc>
+    <loc>https://gauthier.uk/blog/who/</loc>
     <lastmod>2020-08-31T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/unix/</loc>
+    <loc>https://gauthier.uk/tags/unix/</loc>
     <lastmod>2020-08-31T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/utmp/</loc>
+    <loc>https://gauthier.uk/tags/utmp/</loc>
     <lastmod>2020-08-31T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://gauthier.uk/categories/</loc>
   </url>
 </urlset>

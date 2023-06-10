@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Security on Gauthier Jolly</title>
-    <link>/tags/security/</link>
+    <link>https://gauthier.uk/tags/security/</link>
     <description>Recent content in Security on Gauthier Jolly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Nov 2021 13:10:00 +0000</lastBuildDate><atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Nov 2021 13:10:00 +0000</lastBuildDate><atom:link href="https://gauthier.uk/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Firewall, Tailscale and Ubuntu</title>
-      <link>/blog/ufw/</link>
+      <link>https://gauthier.uk/blog/ufw/</link>
       <pubDate>Sun, 14 Nov 2021 13:10:00 +0000</pubDate>
       
-      <guid>/blog/ufw/</guid>
+      <guid>https://gauthier.uk/blog/ufw/</guid>
       <description>How to configure Ubuntu&amp;#39;s Firewall to allow SSH in with Tailscale</description>
     </item>
     

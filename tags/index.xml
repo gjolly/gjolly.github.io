@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Gauthier Jolly</title>
-    <link>/tags/</link>
+    <link>https://gauthier.uk/tags/</link>
     <description>Recent content in Tags on Gauthier Jolly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Nov 2022 09:10:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Boot</title>
-      <link>/tags/boot/</link>
-      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
-      
-      <guid>/tags/boot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kernel</title>
-      <link>/tags/kernel/</link>
-      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
-      
-      <guid>/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 09 Jun 2023 09:10:00 +0000</lastBuildDate><atom:link href="https://gauthier.uk/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux</title>
-      <link>/tags/linux/</link>
-      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
+      <link>https://gauthier.uk/tags/linux/</link>
+      <pubDate>Fri, 09 Jun 2023 09:10:00 +0000</pubDate>
       
-      <guid>/tags/linux/</guid>
+      <guid>https://gauthier.uk/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubuntu</title>
-      <link>/tags/ubuntu/</link>
+      <link>https://gauthier.uk/tags/ubuntu/</link>
+      <pubDate>Fri, 09 Jun 2023 09:10:00 +0000</pubDate>
+      
+      <guid>https://gauthier.uk/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boot</title>
+      <link>https://gauthier.uk/tags/boot/</link>
       <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
       
-      <guid>/tags/ubuntu/</guid>
+      <guid>https://gauthier.uk/tags/boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel</title>
+      <link>https://gauthier.uk/tags/kernel/</link>
+      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
+      
+      <guid>https://gauthier.uk/tags/kernel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>QEMU</title>
-      <link>/tags/qemu/</link>
+      <link>https://gauthier.uk/tags/qemu/</link>
       <pubDate>Fri, 19 Nov 2021 11:10:00 +0000</pubDate>
       
-      <guid>/tags/qemu/</guid>
+      <guid>https://gauthier.uk/tags/qemu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>/tags/security/</link>
+      <link>https://gauthier.uk/tags/security/</link>
       <pubDate>Sun, 14 Nov 2021 13:10:00 +0000</pubDate>
       
-      <guid>/tags/security/</guid>
+      <guid>https://gauthier.uk/tags/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>UNIX</title>
-      <link>/tags/unix/</link>
+      <link>https://gauthier.uk/tags/unix/</link>
       <pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate>
       
-      <guid>/tags/unix/</guid>
+      <guid>https://gauthier.uk/tags/unix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>utmp</title>
-      <link>/tags/utmp/</link>
+      <link>https://gauthier.uk/tags/utmp/</link>
       <pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate>
       
-      <guid>/tags/utmp/</guid>
+      <guid>https://gauthier.uk/tags/utmp/</guid>
       <description></description>
     </item>
     
