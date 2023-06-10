@@ -9,8 +9,6 @@ externalLink = ""
 series = []
 +++
 
-# Firewall, Tailscale and Ubuntu
-
 I recently enabled the Firewall on my desktop on Ubuntu. I probably did a quick lookup online to find out that `sudo ufw enable` was enough to enable it. I entered the command and forgot about it.
 
 ```bash

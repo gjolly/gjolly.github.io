@@ -5,10 +5,6 @@ description: "Full Disk Encryption on most Linux distro has a major security flo
 tags: ["Linux", "Kernel", "Boot", "Ubuntu"]
 ---
 
-# Full Disk Encryption, Secureboot and Unified Kernel Image
-
-FDE protect your data at rest and Secureboot makes sure what you boot is trusted. But there is a flow.
-
 ## The flow
 
 In order to decrypt the root filesystem, the kernel uses a initial ram disk (initramfs). The initramfs provides an temporary filesystem from which extra kernel modules can be loaded, it also contains a set of scripts used to boot the system including scripts to decrypt the user's root filesystem.

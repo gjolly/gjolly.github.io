@@ -9,8 +9,6 @@ externalLink = ""
 series = []
 +++
 
-# Boot Linux without GRUB
-
 To boot the Linux Kernel, most distro use a bootloader and one of the most popular is GRUB. But did you know you can directly boot the Kernel without using a bootloader?
 
 **DISCLAIMER**: This is only for fun and learning, I do not advise anyone to do that on their main system. Be safe, use a VM.

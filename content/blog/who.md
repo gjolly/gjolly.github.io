@@ -9,8 +9,6 @@ externalLink = ""
 series = []
 +++
 
-# The `who` command
-
 While working on a completely different project, I started to ask myself how the `who` command was working under the hood. In the end, I thought it was a good topic for a blog post.
 
 ## Who is `who`

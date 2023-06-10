@@ -9,8 +9,6 @@ externalLink = ""
 series = []
 +++
 
-# QEMU cheatsheet
-
 ## The basics
 
 https://powersj.io/posts/ubuntu-qemu-cli/
