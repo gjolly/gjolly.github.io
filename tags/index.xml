@@ -1,1 +1,83 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Gauthier Jolly</title><link>/tags/</link><description>Recent content in Tags on Gauthier Jolly</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 13 Nov 2022 09:10:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Boot</title><link>/tags/boot/index.json</link><pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate><guid>/tags/boot/index.json</guid><description/></item><item><title>Kernel</title><link>/tags/kernel/index.json</link><pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate><guid>/tags/kernel/index.json</guid><description/></item><item><title>Linux</title><link>/tags/linux/index.json</link><pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate><guid>/tags/linux/index.json</guid><description/></item><item><title>Ubuntu</title><link>/tags/ubuntu/index.json</link><pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate><guid>/tags/ubuntu/index.json</guid><description/></item><item><title>QEMU</title><link>/tags/qemu/index.json</link><pubDate>Fri, 19 Nov 2021 11:10:00 +0000</pubDate><guid>/tags/qemu/index.json</guid><description/></item><item><title>Security</title><link>/tags/security/index.json</link><pubDate>Sun, 14 Nov 2021 13:10:00 +0000</pubDate><guid>/tags/security/index.json</guid><description/></item><item><title>UNIX</title><link>/tags/unix/index.json</link><pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate><guid>/tags/unix/index.json</guid><description/></item><item><title>utmp</title><link>/tags/utmp/index.json</link><pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate><guid>/tags/utmp/index.json</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Gauthier Jolly</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Gauthier Jolly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Nov 2022 09:10:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boot</title>
+      <link>/tags/boot/</link>
+      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
+      
+      <guid>/tags/boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel</title>
+      <link>/tags/kernel/</link>
+      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
+      
+      <guid>/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>/tags/ubuntu/</link>
+      <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
+      
+      <guid>/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QEMU</title>
+      <link>/tags/qemu/</link>
+      <pubDate>Fri, 19 Nov 2021 11:10:00 +0000</pubDate>
+      
+      <guid>/tags/qemu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>/tags/security/</link>
+      <pubDate>Sun, 14 Nov 2021 13:10:00 +0000</pubDate>
+      
+      <guid>/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UNIX</title>
+      <link>/tags/unix/</link>
+      <pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate>
+      
+      <guid>/tags/unix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utmp</title>
+      <link>/tags/utmp/</link>
+      <pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate>
+      
+      <guid>/tags/utmp/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
