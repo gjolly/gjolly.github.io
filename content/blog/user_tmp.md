@@ -17,7 +17,7 @@ To create a temporary directory in your HOME, write a config file like this one 
 
 ```
 # Delete the content of ~/tmp on reboot
-D %h/tmp 0750 %u %u -
+D %h/tmp 0750 - - -
 ```
 
 and enable the following user service:
