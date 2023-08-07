@@ -22,7 +22,7 @@ D %h/tmp 0750 %u %u -
 
 and enable the following user service:
 
-```
+```bash
 systemctl --user status systemd-tmpfiles-setup.service
 ```
 
