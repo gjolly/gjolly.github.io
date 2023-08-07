@@ -7,7 +7,7 @@ tags: ["Linux", "systemd", "Ubuntu"]
 
 ## `systemd-tmpfiles`
 
-`/tmp` and other temporary directories and files are now managed by `systemd` and are not `tmpfs`. `sytemd-tmpfiles` gives to the user the ability to choose what they temporary directory. There are a ton of options that the user can choose from and everything is managed though config files (see `man tmpfiles.d`).
+`/tmp` and other temporary directories and files are now managed by `systemd` and are not `tmpfs`. `sytemd-tmpfiles` gives to the user the ability to choose what they want to do with temporary directories/files. There are a ton of options that the user can choose from and everything is managed though config files (see `man tmpfiles.d`).
 
 ## Create a temporary directory in your HOME folder
 
