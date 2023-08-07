@@ -27,3 +27,11 @@ systemctl --user status systemd-tmpfiles-setup.service
 ```
 
 Now everytime the user login, `$HOME/tmp` will be cleaned (or created if needed). For the config to take effect immediately, you can run `systemd-tmpfiles --user --create` to create the directory and `systemd-tmpfiles --user --remove` to cleanup the directory.
+
+If you don't like to see your `Downloads` becoming more of a mess day after day, you can also create the following rule:
+
+```
+e %h/Downloads 0755 - - 30d
+```
+
+Then, files older than 30 days will be removed automatically.
