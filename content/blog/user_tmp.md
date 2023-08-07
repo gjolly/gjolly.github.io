@@ -11,7 +11,7 @@ tags: ["Linux", "systemd", "Ubuntu"]
 
 ## Create a temporary directory in your HOME folder
 
-Using the global `/tmp` directory can be security issue as anyone can read this directory. If the user is not very carefull with the permissions they set on their files, confidential information might leak. Also, programs packaged in `snap` cannot access the global temporary directory `/tmp` by default.
+Using the global `/tmp` directory can be security issue as anyone can read this directory. If the user is not very carefull with the permissions they set on their files, confidential information might leak. Also, programs packaged with `snap` cannot access the global temporary directory `/tmp` by default.
 
 To create a temporary directory in your HOME, write a config file like this one in `$HOME/.config/user-tmpfiles.d/tmp.conf`:
 
