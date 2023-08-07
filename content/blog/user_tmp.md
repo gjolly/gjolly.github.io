@@ -23,7 +23,7 @@ D %h/tmp 0750 - - -
 and enable the following user service:
 
 ```bash
-systemctl --user status systemd-tmpfiles-setup.service
+systemctl --user enable systemd-tmpfiles-setup.service
 ```
 
 Now everytime the user login, `$HOME/tmp` will be cleaned (or created if needed). For the config to take effect immediately, you can run `systemd-tmpfiles --user --create` to create the directory and `systemd-tmpfiles --user --remove` to cleanup the directory.
