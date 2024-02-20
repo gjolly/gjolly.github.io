@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Linux on Gauthier Jolly</title>
-    <link>https://gauthier.uk/tags/linux/</link>
+    <link>https://gjolly.fr/tags/linux/</link>
     <description>Recent content in Linux on Gauthier Jolly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate><atom:link href="https://gauthier.uk/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate><atom:link href="https://gjolly.fr/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>User temporary directory</title>
-      <link>https://gauthier.uk/blog/user_tmp/</link>
+      <link>https://gjolly.fr/blog/user_tmp/</link>
       <pubDate>Mon, 07 Aug 2023 11:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/blog/user_tmp/</guid>
+      <guid>https://gjolly.fr/blog/user_tmp/</guid>
       <description>A temporary directory in the user home folder</description>
     </item>
     
     <item>
       <title>A basic CLI tool to build Ubuntu images</title>
-      <link>https://gauthier.uk/blog/genesis/</link>
+      <link>https://gjolly.fr/blog/genesis/</link>
       <pubDate>Fri, 09 Jun 2023 09:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/blog/genesis/</guid>
+      <guid>https://gjolly.fr/blog/genesis/</guid>
       <description>Build Ubuntu images from scratch with a CLI tool</description>
     </item>
     
     <item>
       <title>FDE, Secureboot and unified kernel image</title>
-      <link>https://gauthier.uk/blog/unified_kernel_sb/</link>
+      <link>https://gjolly.fr/blog/unified_kernel_sb/</link>
       <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/blog/unified_kernel_sb/</guid>
+      <guid>https://gjolly.fr/blog/unified_kernel_sb/</guid>
       <description>Full Disk Encryption on most Linux distro has a major security flow. Why? How to fix it?</description>
     </item>
     
     <item>
       <title>Boot Linux without GRUB</title>
-      <link>https://gauthier.uk/blog/grub_less/</link>
+      <link>https://gjolly.fr/blog/grub_less/</link>
       <pubDate>Fri, 19 Nov 2021 11:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/blog/grub_less/</guid>
+      <guid>https://gjolly.fr/blog/grub_less/</guid>
       <description>How to take advantage of the Kernel&amp;#39;s EFI stub to boot without any bootloader</description>
     </item>
     
     <item>
       <title>QEMU cheatsheet</title>
-      <link>https://gauthier.uk/blog/qemu_cheatsheet/</link>
+      <link>https://gjolly.fr/blog/qemu_cheatsheet/</link>
       <pubDate>Fri, 19 Nov 2021 11:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/blog/qemu_cheatsheet/</guid>
+      <guid>https://gjolly.fr/blog/qemu_cheatsheet/</guid>
       <description>How to use QEMU and a few tricks</description>
     </item>
     
     <item>
       <title>Firewall, Tailscale and Ubuntu</title>
-      <link>https://gauthier.uk/blog/ufw/</link>
+      <link>https://gjolly.fr/blog/ufw/</link>
       <pubDate>Sun, 14 Nov 2021 13:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/blog/ufw/</guid>
+      <guid>https://gjolly.fr/blog/ufw/</guid>
       <description>How to configure Ubuntu&amp;#39;s Firewall to allow SSH in with Tailscale</description>
     </item>
     
     <item>
       <title>The UNIX `who` command</title>
-      <link>https://gauthier.uk/blog/who/</link>
+      <link>https://gjolly.fr/blog/who/</link>
       <pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/blog/who/</guid>
+      <guid>https://gjolly.fr/blog/who/</guid>
       <description>Understanding where `who` gets its data</description>
     </item>
     

@@ -2,63 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gauthier.uk/blog/</loc>
+    <loc>https://gjolly.fr/blog/</loc>
     <lastmod>2023-08-07T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/</loc>
+    <loc>https://gjolly.fr/</loc>
     <lastmod>2023-08-07T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/linux/</loc>
+    <loc>https://gjolly.fr/tags/linux/</loc>
     <lastmod>2023-08-07T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/systemd/</loc>
+    <loc>https://gjolly.fr/tags/systemd/</loc>
     <lastmod>2023-08-07T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/</loc>
+    <loc>https://gjolly.fr/tags/</loc>
     <lastmod>2023-08-07T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/ubuntu/</loc>
+    <loc>https://gjolly.fr/tags/ubuntu/</loc>
     <lastmod>2023-08-07T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/blog/user_tmp/</loc>
+    <loc>https://gjolly.fr/blog/user_tmp/</loc>
     <lastmod>2023-08-07T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/blog/genesis/</loc>
+    <loc>https://gjolly.fr/blog/genesis/</loc>
     <lastmod>2023-06-09T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/boot/</loc>
+    <loc>https://gjolly.fr/tags/boot/</loc>
     <lastmod>2022-11-13T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/blog/unified_kernel_sb/</loc>
+    <loc>https://gjolly.fr/blog/unified_kernel_sb/</loc>
     <lastmod>2022-11-13T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/kernel/</loc>
+    <loc>https://gjolly.fr/tags/kernel/</loc>
     <lastmod>2022-11-13T09:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/blog/grub_less/</loc>
+    <loc>https://gjolly.fr/blog/grub_less/</loc>
     <lastmod>2021-11-19T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/qemu/</loc>
+    <loc>https://gjolly.fr/tags/qemu/</loc>
     <lastmod>2021-11-19T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/blog/qemu_cheatsheet/</loc>
+    <loc>https://gjolly.fr/blog/qemu_cheatsheet/</loc>
     <lastmod>2021-11-19T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/blog/ufw/</loc>
+    <loc>https://gjolly.fr/blog/ufw/</loc>
     <lastmod>2021-11-14T13:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/security/</loc>
+    <loc>https://gjolly.fr/tags/security/</loc>
     <lastmod>2021-11-14T13:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/blog/who/</loc>
+    <loc>https://gjolly.fr/blog/who/</loc>
     <lastmod>2020-08-31T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/unix/</loc>
+    <loc>https://gjolly.fr/tags/unix/</loc>
     <lastmod>2020-08-31T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/tags/utmp/</loc>
+    <loc>https://gjolly.fr/tags/utmp/</loc>
     <lastmod>2020-08-31T11:40:00+00:00</lastmod>
   </url><url>
-    <loc>https://gauthier.uk/categories/</loc>
+    <loc>https://gjolly.fr/categories/</loc>
   </url>
 </urlset>

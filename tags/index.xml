@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Gauthier Jolly</title>
-    <link>https://gauthier.uk/tags/</link>
+    <link>https://gjolly.fr/tags/</link>
     <description>Recent content in Tags on Gauthier Jolly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate><atom:link href="https://gauthier.uk/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate><atom:link href="https://gjolly.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux</title>
-      <link>https://gauthier.uk/tags/linux/</link>
+      <link>https://gjolly.fr/tags/linux/</link>
       <pubDate>Mon, 07 Aug 2023 11:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/linux/</guid>
+      <guid>https://gjolly.fr/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>systemd</title>
-      <link>https://gauthier.uk/tags/systemd/</link>
+      <title>Systemd</title>
+      <link>https://gjolly.fr/tags/systemd/</link>
       <pubDate>Mon, 07 Aug 2023 11:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/systemd/</guid>
+      <guid>https://gjolly.fr/tags/systemd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubuntu</title>
-      <link>https://gauthier.uk/tags/ubuntu/</link>
+      <link>https://gjolly.fr/tags/ubuntu/</link>
       <pubDate>Mon, 07 Aug 2023 11:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/ubuntu/</guid>
+      <guid>https://gjolly.fr/tags/ubuntu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Boot</title>
-      <link>https://gauthier.uk/tags/boot/</link>
+      <link>https://gjolly.fr/tags/boot/</link>
       <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/boot/</guid>
+      <guid>https://gjolly.fr/tags/boot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kernel</title>
-      <link>https://gauthier.uk/tags/kernel/</link>
+      <link>https://gjolly.fr/tags/kernel/</link>
       <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/kernel/</guid>
+      <guid>https://gjolly.fr/tags/kernel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>QEMU</title>
-      <link>https://gauthier.uk/tags/qemu/</link>
+      <link>https://gjolly.fr/tags/qemu/</link>
       <pubDate>Fri, 19 Nov 2021 11:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/qemu/</guid>
+      <guid>https://gjolly.fr/tags/qemu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>https://gauthier.uk/tags/security/</link>
+      <link>https://gjolly.fr/tags/security/</link>
       <pubDate>Sun, 14 Nov 2021 13:10:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/security/</guid>
+      <guid>https://gjolly.fr/tags/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>UNIX</title>
-      <link>https://gauthier.uk/tags/unix/</link>
+      <link>https://gjolly.fr/tags/unix/</link>
       <pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/unix/</guid>
+      <guid>https://gjolly.fr/tags/unix/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>utmp</title>
-      <link>https://gauthier.uk/tags/utmp/</link>
+      <title>Utmp</title>
+      <link>https://gjolly.fr/tags/utmp/</link>
       <pubDate>Mon, 31 Aug 2020 11:40:00 +0000</pubDate>
       
-      <guid>https://gauthier.uk/tags/utmp/</guid>
+      <guid>https://gjolly.fr/tags/utmp/</guid>
       <description></description>
     </item>
     
