@@ -4,17 +4,16 @@
     <title>Systemd on Gauthier Jolly</title>
     <link>https://gjolly.fr/tags/systemd/</link>
     <description>Recent content in Systemd on Gauthier Jolly</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.4</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate><atom:link href="https://gjolly.fr/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate>
+    <atom:link href="https://gjolly.fr/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>User temporary directory</title>
       <link>https://gjolly.fr/blog/user_tmp/</link>
       <pubDate>Mon, 07 Aug 2023 11:10:00 +0000</pubDate>
-      
       <guid>https://gjolly.fr/blog/user_tmp/</guid>
       <description>A temporary directory in the user home folder</description>
     </item>
-    
   </channel>
 </rss>

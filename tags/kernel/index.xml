@@ -4,26 +4,23 @@
     <title>Kernel on Gauthier Jolly</title>
     <link>https://gjolly.fr/tags/kernel/</link>
     <description>Recent content in Kernel on Gauthier Jolly</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.4</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Nov 2022 09:10:00 +0000</lastBuildDate><atom:link href="https://gjolly.fr/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Nov 2022 09:10:00 +0000</lastBuildDate>
+    <atom:link href="https://gjolly.fr/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FDE, Secureboot and unified kernel image</title>
       <link>https://gjolly.fr/blog/unified_kernel_sb/</link>
       <pubDate>Sun, 13 Nov 2022 09:10:00 +0000</pubDate>
-      
       <guid>https://gjolly.fr/blog/unified_kernel_sb/</guid>
       <description>Full Disk Encryption on most Linux distro has a major security flow. Why? How to fix it?</description>
     </item>
-    
     <item>
       <title>Boot Linux without GRUB</title>
       <link>https://gjolly.fr/blog/grub_less/</link>
       <pubDate>Fri, 19 Nov 2021 11:10:00 +0000</pubDate>
-      
       <guid>https://gjolly.fr/blog/grub_less/</guid>
       <description>How to take advantage of the Kernel&amp;#39;s EFI stub to boot without any bootloader</description>
     </item>
-    
   </channel>
 </rss>
