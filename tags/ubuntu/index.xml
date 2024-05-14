@@ -4,7 +4,7 @@
     <title>Ubuntu on Gauthier Jolly</title>
     <link>https://gjolly.fr/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on Gauthier Jolly</description>
-    <generator>Hugo -- 0.125.4</generator>
+    <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
     <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
@@ -21,6 +21,13 @@
       <pubDate>Fri, 09 Jun 2023 09:10:00 +0000</pubDate>
       <guid>https://gjolly.fr/blog/genesis/</guid>
       <description>Build Ubuntu images from scratch with a CLI tool</description>
+    </item>
+    <item>
+      <title>Boot Linux with coreboot without bootloader</title>
+      <link>https://gjolly.fr/blog/boot-from-rom/</link>
+      <pubDate>Sun, 14 May 2023 17:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/boot-from-rom/</guid>
+      <description>Virtual firmware can be as big as you want, so you can fit a entire kernel.</description>
     </item>
     <item>
       <title>FDE, Secureboot and unified kernel image</title>
