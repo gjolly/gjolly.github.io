@@ -4,31 +4,10 @@
     <title>Tags on Gauthier Jolly</title>
     <link>https://gjolly.fr/tags/</link>
     <description>Recent content in Tags on Gauthier Jolly</description>
-    <generator>Hugo -- 0.125.7</generator>
+    <generator>Hugo -- 0.126.0</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Aug 2023 11:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 May 2024 17:10:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linux</title>
-      <link>https://gjolly.fr/tags/linux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gjolly.fr/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Systemd</title>
-      <link>https://gjolly.fr/tags/systemd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gjolly.fr/tags/systemd/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ubuntu</title>
-      <link>https://gjolly.fr/tags/ubuntu/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gjolly.fr/tags/ubuntu/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Boot</title>
       <link>https://gjolly.fr/tags/boot/</link>
@@ -41,6 +20,27 @@
       <link>https://gjolly.fr/tags/kernel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://gjolly.fr/tags/kernel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://gjolly.fr/tags/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://gjolly.fr/tags/ubuntu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Systemd</title>
+      <link>https://gjolly.fr/tags/systemd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/systemd/</guid>
       <description></description>
     </item>
     <item>
