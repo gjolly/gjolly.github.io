@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Gauthier Jolly</description>
     <generator>Hugo -- 0.140.0</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Oct 2024 17:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2024 12:10:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://gjolly.fr/tags/linux/</link>
+      <pubDate>Sun, 22 Dec 2024 12:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mkosi</title>
+      <link>https://gjolly.fr/tags/mkosi/</link>
+      <pubDate>Sun, 22 Dec 2024 12:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/mkosi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://gjolly.fr/tags/ubuntu/</link>
+      <pubDate>Sun, 22 Dec 2024 12:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/ubuntu/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Boot</title>
       <link>https://gjolly.fr/tags/boot/</link>
@@ -20,20 +41,6 @@
       <link>https://gjolly.fr/tags/kernel/</link>
       <pubDate>Mon, 14 Oct 2024 17:10:00 +0000</pubDate>
       <guid>https://gjolly.fr/tags/kernel/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://gjolly.fr/tags/linux/</link>
-      <pubDate>Mon, 14 Oct 2024 17:10:00 +0000</pubDate>
-      <guid>https://gjolly.fr/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ubuntu</title>
-      <link>https://gjolly.fr/tags/ubuntu/</link>
-      <pubDate>Mon, 14 Oct 2024 17:10:00 +0000</pubDate>
-      <guid>https://gjolly.fr/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>

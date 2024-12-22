@@ -6,8 +6,15 @@
     <description>Recent content in Blogs on Gauthier Jolly</description>
     <generator>Hugo -- 0.140.0</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Oct 2024 17:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2024 12:10:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build an Ubuntu Server live image with mkosi</title>
+      <link>https://gjolly.fr/blog/ubuntu-mkosi/</link>
+      <pubDate>Sun, 22 Dec 2024 12:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/ubuntu-mkosi/</guid>
+      <description>Let&amp;#39;s see how to use mkosi to build an Ubuntu image</description>
+    </item>
     <item>
       <title>Boot Linux with coreboot without bootloader</title>
       <link>https://gjolly.fr/blog/boot-from-rom/</link>

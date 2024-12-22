@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mkosi on Gauthier Jolly</title>
+    <link>https://gjolly.fr/tags/mkosi/</link>
+    <description>Recent content in Mkosi on Gauthier Jolly</description>
+    <generator>Hugo -- 0.140.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Dec 2024 12:10:00 +0000</lastBuildDate>
+    <atom:link href="https://gjolly.fr/tags/mkosi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build an Ubuntu Server live image with mkosi</title>
+      <link>https://gjolly.fr/blog/ubuntu-mkosi/</link>
+      <pubDate>Sun, 22 Dec 2024 12:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/ubuntu-mkosi/</guid>
+      <description>Let&amp;#39;s see how to use mkosi to build an Ubuntu image</description>
+    </item>
+  </channel>
+</rss>
