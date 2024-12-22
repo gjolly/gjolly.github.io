@@ -41,3 +41,25 @@ Hostname=ubuntu
 ```
 
 Then simply run `mkosi`.
+
+## Boot the image
+
+Use [this script](https://github.com/gjolly/qemu-utils/blob/main/start-vm.sh) (use --no-snapshot to make the changes persist):
+
+```bash
+./start-vm.sh ./image.raw
+```
+
+## To go further
+
+At the moment, `mkosi` only supports producing raw disk images. To convert the image to `qcow2`:
+
+```bash
+qemu-img convert -f raw -O qcow2 /tmp/image.raw /tmp/ubuntu.img
+```
+
+And to make it (virtually) bigger:
+
+```bash
+qemu-img resize /tmp/ubuntu-24.04.img +50G
+```
