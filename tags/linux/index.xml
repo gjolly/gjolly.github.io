@@ -4,10 +4,17 @@
     <title>Linux on Gauthier Jolly</title>
     <link>https://gjolly.fr/tags/linux/</link>
     <description>Recent content in Linux on Gauthier Jolly</description>
-    <generator>Hugo -- 0.140.0</generator>
+    <generator>Hugo -- 0.143.1</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Dec 2024 12:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2025 20:30:00 +0100</lastBuildDate>
     <atom:link href="https://gjolly.fr/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to install NVIDIA drivers on Ubuntu</title>
+      <link>https://gjolly.fr/blog/nivdia-drivers/</link>
+      <pubDate>Wed, 12 Feb 2025 20:30:00 +0100</pubDate>
+      <guid>https://gjolly.fr/blog/nivdia-drivers/</guid>
+      <description>Stop installing the NVIDIA drivers from NVIDIA repos on Ubuntu</description>
+    </item>
     <item>
       <title>Build an Ubuntu Server live image with mkosi</title>
       <link>https://gjolly.fr/blog/ubuntu-mkosi/</link>
