@@ -4,10 +4,17 @@
     <title>Blogs on Gauthier Jolly</title>
     <link>https://gjolly.fr/blog/</link>
     <description>Recent content in Blogs on Gauthier Jolly</description>
-    <generator>Hugo -- 0.143.1</generator>
+    <generator>Hugo -- 0.146.7</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Feb 2025 20:30:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 23 Apr 2025 09:10:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practical Guide To Virtual Networking on Linux</title>
+      <link>https://gjolly.fr/blog/virtual-networking/</link>
+      <pubDate>Wed, 23 Apr 2025 09:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/virtual-networking/</guid>
+      <description>How to create and manage virtual networks on you Linux host.</description>
+    </item>
     <item>
       <title>How to install NVIDIA drivers on Ubuntu</title>
       <link>https://gjolly.fr/blog/nivdia-drivers/</link>
