@@ -92,5 +92,3 @@ To recap, here's the entire process:
 5. Kernel mounts the real root filesystem
 6. Kernel executes the init process from the root filesystem
 7. Init (systemd) brings up all system services and completes the boot
-
-Understanding these components and their interactions gives you deeper insight into how Linux works and provides a foundation for troubleshooting boot problems or customizing your system.
