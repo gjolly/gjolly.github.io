@@ -4,10 +4,17 @@
     <title>Blogs on Gauthier Jolly</title>
     <link>https://gjolly.fr/blog/</link>
     <description>Recent content in Blogs on Gauthier Jolly</description>
-    <generator>Hugo -- 0.146.7</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Apr 2025 09:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Apr 2025 11:10:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture of a Linux system and boot process</title>
+      <link>https://gjolly.fr/blog/linux-system-boot/</link>
+      <pubDate>Sat, 26 Apr 2025 11:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/linux-system-boot/</guid>
+      <description>What makes a Linux system: Kernels, Root Filesystems, and the Boot Process</description>
+    </item>
     <item>
       <title>Practical Guide To Virtual Networking on Linux</title>
       <link>https://gjolly.fr/blog/virtual-networking/</link>

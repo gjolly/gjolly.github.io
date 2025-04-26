@@ -4,14 +4,28 @@
     <title>Tags on Gauthier Jolly</title>
     <link>https://gjolly.fr/tags/</link>
     <description>Recent content in Tags on Gauthier Jolly</description>
-    <generator>Hugo -- 0.146.7</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Apr 2025 09:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Apr 2025 11:10:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boot</title>
+      <link>https://gjolly.fr/tags/boot/</link>
+      <pubDate>Sat, 26 Apr 2025 11:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/boot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kernel</title>
+      <link>https://gjolly.fr/tags/kernel/</link>
+      <pubDate>Sat, 26 Apr 2025 11:10:00 +0000</pubDate>
+      <guid>https://gjolly.fr/tags/kernel/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Linux</title>
       <link>https://gjolly.fr/tags/linux/</link>
-      <pubDate>Wed, 23 Apr 2025 09:10:00 +0000</pubDate>
+      <pubDate>Sat, 26 Apr 2025 11:10:00 +0000</pubDate>
       <guid>https://gjolly.fr/tags/linux/</guid>
       <description></description>
     </item>
@@ -41,20 +55,6 @@
       <link>https://gjolly.fr/tags/mkosi/</link>
       <pubDate>Sun, 22 Dec 2024 12:10:00 +0000</pubDate>
       <guid>https://gjolly.fr/tags/mkosi/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Boot</title>
-      <link>https://gjolly.fr/tags/boot/</link>
-      <pubDate>Mon, 14 Oct 2024 17:10:00 +0000</pubDate>
-      <guid>https://gjolly.fr/tags/boot/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kernel</title>
-      <link>https://gjolly.fr/tags/kernel/</link>
-      <pubDate>Mon, 14 Oct 2024 17:10:00 +0000</pubDate>
-      <guid>https://gjolly.fr/tags/kernel/</guid>
       <description></description>
     </item>
     <item>
