@@ -4,10 +4,17 @@
     <title>Blogs on Gauthier Jolly</title>
     <link>https://gjolly.fr/blog/</link>
     <description>Recent content in Blogs on Gauthier Jolly</description>
-    <generator>Hugo -- 0.147.0</generator>
+    <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Apr 2025 11:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Sep 2025 11:30:00 +0100</lastBuildDate>
     <atom:link href="https://gjolly.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I built an Ubuntu archive mirror using Cloudflare</title>
+      <link>https://gjolly.fr/blog/ubuntu-mirror/</link>
+      <pubDate>Thu, 25 Sep 2025 11:30:00 +0100</pubDate>
+      <guid>https://gjolly.fr/blog/ubuntu-mirror/</guid>
+      <description>A fast and modern way to create an package mirror.</description>
+    </item>
     <item>
       <title>Architecture of a Linux system and boot process</title>
       <link>https://gjolly.fr/blog/linux-system-boot/</link>

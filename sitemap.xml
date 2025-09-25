@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://gjolly.fr/blog/</loc>
+    <lastmod>2025-09-25T11:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/tags/cloudflare/</loc>
+    <lastmod>2025-09-25T11:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/tags/debian/</loc>
+    <lastmod>2025-09-25T11:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/</loc>
+    <lastmod>2025-09-25T11:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/blog/ubuntu-mirror/</loc>
+    <lastmod>2025-09-25T11:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/tags/</loc>
+    <lastmod>2025-09-25T11:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/tags/ubuntu/</loc>
+    <lastmod>2025-09-25T11:30:00+01:00</lastmod>
+  </url><url>
     <loc>https://gjolly.fr/blog/linux-system-boot/</loc>
     <lastmod>2025-04-26T11:10:00+00:00</lastmod>
   </url><url>
-    <loc>https://gjolly.fr/blog/</loc>
-    <lastmod>2025-04-26T11:10:00+00:00</lastmod>
-  </url><url>
     <loc>https://gjolly.fr/tags/boot/</loc>
-    <lastmod>2025-04-26T11:10:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gjolly.fr/</loc>
     <lastmod>2025-04-26T11:10:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/tags/kernel/</loc>
     <lastmod>2025-04-26T11:10:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/tags/linux/</loc>
-    <lastmod>2025-04-26T11:10:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gjolly.fr/tags/</loc>
     <lastmod>2025-04-26T11:10:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/tags/networking/</loc>
@@ -33,9 +45,6 @@
     <lastmod>2025-02-12T20:30:00+01:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/tags/nvidia/</loc>
-    <lastmod>2025-02-12T20:30:00+01:00</lastmod>
-  </url><url>
-    <loc>https://gjolly.fr/tags/ubuntu/</loc>
     <lastmod>2025-02-12T20:30:00+01:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/blog/ubuntu-mkosi/</loc>

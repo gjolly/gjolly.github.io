@@ -4,10 +4,31 @@
     <title>Tags on Gauthier Jolly</title>
     <link>https://gjolly.fr/tags/</link>
     <description>Recent content in Tags on Gauthier Jolly</description>
-    <generator>Hugo -- 0.147.0</generator>
+    <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Apr 2025 11:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Sep 2025 11:30:00 +0100</lastBuildDate>
     <atom:link href="https://gjolly.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare</title>
+      <link>https://gjolly.fr/tags/cloudflare/</link>
+      <pubDate>Thu, 25 Sep 2025 11:30:00 +0100</pubDate>
+      <guid>https://gjolly.fr/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debian</title>
+      <link>https://gjolly.fr/tags/debian/</link>
+      <pubDate>Thu, 25 Sep 2025 11:30:00 +0100</pubDate>
+      <guid>https://gjolly.fr/tags/debian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://gjolly.fr/tags/ubuntu/</link>
+      <pubDate>Thu, 25 Sep 2025 11:30:00 +0100</pubDate>
+      <guid>https://gjolly.fr/tags/ubuntu/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Boot</title>
       <link>https://gjolly.fr/tags/boot/</link>
@@ -41,13 +62,6 @@
       <link>https://gjolly.fr/tags/nvidia/</link>
       <pubDate>Wed, 12 Feb 2025 20:30:00 +0100</pubDate>
       <guid>https://gjolly.fr/tags/nvidia/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ubuntu</title>
-      <link>https://gjolly.fr/tags/ubuntu/</link>
-      <pubDate>Wed, 12 Feb 2025 20:30:00 +0100</pubDate>
-      <guid>https://gjolly.fr/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
