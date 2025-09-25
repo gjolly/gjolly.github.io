@@ -43,6 +43,8 @@ One of the drawback here is that every request hits the worker which add more co
 
 ## Putting it in production
 
+Mirror URL: https://ubuntu.gjolly.dev/ubuntu
+
 As you might expect, getting this to production was not without issues.
 
 At first, I made a mistake with a symlink that pointed `/ubuntu` back to itself. Yes, a recursive path! You can try it by yourself: http://archive.ubuntu.com/ubuntu/ubuntu/ubuntu/ubuntu, you can add as many `ubuntu` as you wish, it will always work because on the actual filesystem `ubuntu/ubuntu` is a symlink to itself! On a static file server, it might work with no problem but I certainly didn't want my object store to be filled with duplicated data.
@@ -110,4 +112,4 @@ $ curl -o /dev/null https://ubuntu.gjolly.dev/ubuntu/pool/main/l/linux-hwe-6.14/
 
 This approach only works well if more than one person uses the mirror in each Cloudflare edge location. If I am the only one hitting it, then most requests will go all the way back to the upstream archive. But if many users share the same edge cache, the benefit grows quickly: new  packages are quickly added to the R2 bucket and stay cached on the edge, downloads become much faster: only the first client has to pay a "high" latency
 
-So, if you want to try it, please do! The more people use it, the better it works.
+So, if you want to try it, please do! It's available at https://ubuntu.gjolly.dev/ubuntu. The more people use it, the better it works.
