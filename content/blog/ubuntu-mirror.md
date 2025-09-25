@@ -52,7 +52,7 @@ My next "oops" moment was when I submitted the mirror to the official [Ubuntu ar
 ---
 # Running the numbers
 
-Let's take a random package of the archive: `vim` and try to download it from the upstream archive maintained by Canonical, from my regional mirror and from my service:
+Let's take a random package of the archive: `mysql` and try to download it from the upstream archive maintained by Canonical, from my regional mirror and from my service:
 
 ```
 $ curl -o /dev/null https://archive.ubuntu.com/ubuntu/pool/main/m/mysql-8.4/mysql-client-core_8.4.6-0ubuntu0.25.04.1_amd64.deb
@@ -77,7 +77,7 @@ $ curl -o /dev/null https://ubuntu.gjolly.dev/ubuntu/pool/main/m/mysql-8.4/mysql
 100 2083k  100 2083k    0     0  14.0M      0 --:--:-- --:--:-- --:--:-- 14.1M
 ```
 
-Yay! Now that it's in the cache, we are twice as fast as my regional mirror.
+Yay! Now that it's in the cache, we are twice as fast as the official archive.
 
 Let's do that but with a bigger package, for example `linux-modules-extra-6.14.0-22-generic_6.14.0-22.22~24.04.1_amd64.deb` which is `114MB` big:
 
