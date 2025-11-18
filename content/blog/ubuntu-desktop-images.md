@@ -6,7 +6,7 @@ tags: ["Linux", "genesis", "Ubuntu"]
 ---
 ## Intro
 
-A few years ago [I built a tool](./genesis.md) called `genesis` to build images of Ubuntu. The tool has a very basic CLI interface and is written in Python. I was asked recently if I had ever built desktop images of Ubuntu from scratch and had to admit that I had never tried. I decided to give it a go and found the process rather straight forward.
+A few years ago [I built a tool]({{< relref "genesis.md" >}}) called `genesis` to build images of Ubuntu. The tool has a very basic CLI interface and is written in Python. I was asked recently if I had ever built desktop images of Ubuntu from scratch and had to admit that I had never tried. I decided to give it a go and found the process rather straight forward.
 
 ## Steps
 
