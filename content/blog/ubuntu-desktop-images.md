@@ -10,6 +10,14 @@ A few years ago [I built a tool]({{< relref "genesis.md" >}}) called `genesis` t
 
 ## Steps
 
+First, install `genesis` in a venv:
+
+```bash
+sudo apt update && sudo apt install -y python3-venv
+python3 -m venv .venv
+.venv/bin/pip install git+https://github.com/gjolly/genesis.git
+```
+
 As usual we start by building the initial root filesystem using debootstrap:
 
 ```bash
