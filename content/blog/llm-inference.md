@@ -1,7 +1,7 @@
 ---
 date: 2025-12-13T19:10:00Z
 title: "Build an AI inference server on Ubuntu"
-description: "Deploy local LLM inference with ollama and open-webui"
+description: "Deploy local LLM inference with Ollama and Open WebUI"
 tags: ["Linux", "Ubuntu", "AI", "LLM", "Docker", "NVIDIA"]
 ---
 Open source tools like [Ollama](https://ollama.com/) and [Open WebUI](https://docs.openwebui.com/) are convenient for building local LLM inference stacks that let you create a ChatGPT-like experience on your own infrastructure. Whether you are a hobbyist, someone concerned about privacy, or a business looking to deploy LLMs on-premises, these tools can help you achieve that. To start, the only thing you need is a server or PC running Ubuntu and a GPU for faster inference results.
