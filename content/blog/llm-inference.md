@@ -49,8 +49,7 @@ sudo apt update
 sudo apt install -y nvidia-container-toolkit
 ```
 
-> Note: You can find a detailed guide about this section on the NVIDIA documentation
-> https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+> **Note**: You can find a detailed guide about this section on the [NVIDIA documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 ### Verify the installation
 
