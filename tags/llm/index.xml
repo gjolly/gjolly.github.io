@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>NVIDIA on Gauthier Jolly</title>
-    <link>https://gjolly.fr/tags/nvidia/</link>
-    <description>Recent content in NVIDIA on Gauthier Jolly</description>
+    <title>LLM on Gauthier Jolly</title>
+    <link>https://gjolly.fr/tags/llm/</link>
+    <description>Recent content in LLM on Gauthier Jolly</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
     <lastBuildDate>Sat, 13 Dec 2025 19:10:00 +0000</lastBuildDate>
-    <atom:link href="https://gjolly.fr/tags/nvidia/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gjolly.fr/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build an AI inference server on Ubuntu</title>
       <link>https://gjolly.fr/blog/llm-inference/</link>
       <pubDate>Sat, 13 Dec 2025 19:10:00 +0000</pubDate>
       <guid>https://gjolly.fr/blog/llm-inference/</guid>
       <description>Deploy local LLM inference with ollama and open-webui</description>
-    </item>
-    <item>
-      <title>How to install NVIDIA drivers on Ubuntu</title>
-      <link>https://gjolly.fr/blog/nivdia-drivers/</link>
-      <pubDate>Wed, 12 Feb 2025 20:30:00 +0100</pubDate>
-      <guid>https://gjolly.fr/blog/nivdia-drivers/</guid>
-      <description>Stop installing the NVIDIA drivers from NVIDIA repos on Ubuntu</description>
     </item>
   </channel>
 </rss>
