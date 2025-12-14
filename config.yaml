@@ -26,12 +26,12 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
-  ShowReadingTime: false
+  ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
-  ShowWordCount: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   disableSpecial1stPost: false
@@ -40,7 +40,7 @@ params:
   hidemeta: false
   hideSummary: false
   showtoc: true
-  tocopen: false
+  tocopen: true
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -77,8 +77,8 @@ params:
     Content: "Gauthier Jolly, Software Engineer"
 
   socialIcons:
-    - name: twitter
-      url: "https://twitter.com/gauthier_jolly"
+    - name: email
+      url: "mailto:contact@gjolly.fr"
     - name: github
       url: "https://github.com/gjolly"
     - name: linkedin
@@ -114,8 +114,9 @@ pygmentsUseClasses: true
 markup:
   highlight:
     noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
+    codeFences: true
+    anchorLineNos: true
     # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    lineNos: true
+    # style: algol
+
