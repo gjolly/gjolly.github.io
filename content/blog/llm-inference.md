@@ -4,7 +4,7 @@ title: "Build an AI inference server on Ubuntu"
 description: "Deploy local LLM inference with Ollama and Open WebUI"
 tags: ["Linux", "Ubuntu", "AI", "LLM", "Docker", "NVIDIA"]
 ---
-Open source tools like [Ollama](https://ollama.com/) and [Open WebUI](https://docs.openwebui.com/) are convenient for building local LLM inference stacks that let you create a ChatGPT-like experience on your own infrastructure. Whether you are a hobbyist, someone concerned about privacy, or a business looking to deploy LLMs on-premises, these tools can help you achieve that. To start, the only thing you need is a server or PC running Ubuntu and a GPU for faster inference results.
+Open source tools like [Ollama](https://ollama.com/) and [Open WebUI](https://docs.openwebui.com/) are convenient for building local LLM inference stacks that let you create a ChatGPT-like experience on your own infrastructure. Whether you are a hobbyist, someone concerned about privacy, or a business looking to deploy LLMs on-premises, these tools can help you achieve that.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ sudo apt autoremove -y
 
 Removing old kernels is important to avoid pulling DKMS NVIDIA drivers during the installation.
 
-## Installing the NVIDIA driver (skip this step if you have an AMD GPU)
+## NVIDIA drivers installation (skip this step if you have an AMD GPU)
 
 ### Drivers
 
@@ -61,7 +61,7 @@ sudo apt install -y nvidia-container-toolkit
 You can verify that the installation was successful by running: `nvidia-smi`.
 If everything is working correctly, you should see the output of `nvidia-smi` showing your GPU information.
 
-## Install AMD drivers (NVIDIA users can skip this section)
+## AMD drivers installation (NVIDIA users can skip this section)
 
 ### Drivers
 
@@ -109,7 +109,7 @@ sudo apt install -y amd-container-toolkit
 
 More information can be found on the [AMD ROCm documentation](https://instinct.docs.amd.com/projects/container-toolkit/en/latest/container-runtime/quick-start-guide.html#step-3-configure-repositories).
 
-## Install Docker
+## Installing Docker
 
 To install Docker on your machine, follow [the official documentation from Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).
 
@@ -233,7 +233,7 @@ To keep the NVIDIA drivers up-to-date and never pull the DKMS packages, follow t
 
 I find that the best way to monitor the GPU usage is to use `btop`. If you have `nvidia-smi` or `rocm-smi` installed, `btop` will show you the GPU usage in its UI.
 
-Then, one of the first things to check if you think that the GPU is not being used is to check the logs of the `ollama` container:
+One of the first things to check if you think that the GPU is not being used is the logs from the `ollama` container:
 
 ```bash
 docker compose logs -f ollama
