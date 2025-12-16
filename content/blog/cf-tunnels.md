@@ -3,6 +3,7 @@ date: 2025-12-16T15:30:00Z
 title: "Exposing a local web server using Cloudflare Tunnels"
 description: "Make your local web server accessible from the internet using Cloudflare Tunnels"
 tags: ["Cloudflare"]
+showtoc: false
 ---
 I often run into this problem: I have a local file on my computer that I want to share with a friend or colleague on the other side of the world. While I could upload it to a file sharing service, it's can be very annoying to have to upload it somewhere first, especially if it's a one-off situation and if the file is big. More over, it's my data and I don't necessarily want to upload it to a Google or Dropbox server.
 Similarly, when I'm developing a web application on my local machine, I often want to show it to someone else for testing or feedback. Again, uploading it to a public server can be cumbersome and I don't want to start dealing with a deployment strategy if I just stated prototyping.
@@ -14,13 +15,22 @@ An alternative to ngrok is [Cloudflare Tunnels](https://developers.cloudflare.co
 What you "just" need is:
 - A Cloudflare account. You can sign up for a free account [here](https://www.cloudflare.com/).
 - A domain name registered with Cloudflare (optional, but recommended if you want to use your own domain name).
-- A local web server running on your machine. This can be anything from a simple static file server to a complex web application. eg, a Python server running on `http://localhost:8000`:
+- A local web server running on your machine. This can be anything from a simple static file server to a complex web application. eg, a Python server running on `8000`:
+  ```bash
+  python3 -m http.server 8000
+  ```
+- Docker installed on your machine. You can find installation instructions [here](https://docs.docker.com/get-docker/).
+
+For the rest, I've made a script for myself (and for you) that automates everything. Save this script bellow as `create-tunnel.sh`, make it executable with `chmod +x create-tunnel.sh`, and run it with the local URL of your web server as an argument:
 
 ```bash
-python3 -m http.server 8000
+./create-tunnel.sh http://localhost:8000
 ```
 
-For the rest, I've made a script for myself (and for you) that automates everything:
+
+Voila! But be careful: now anyone who visits `https://tunnel.your-domain.com` will be able to access your local web server. Since domain names are public, make sure you don't use sensitive information in the URL. If you want to stop sharing your server, just kill the script (Ctrl+C) and the tunnel will be closed.
+
+## create-tunnel.sh
 
 ```bash
 #!/bin/bash -eu
@@ -86,11 +96,3 @@ fi
     --credentials-file "/root/.cloudflared/${tunnel_id}.json" \
     "$tunnel_name"
 ```
-
-Save this script as `create-tunnel.sh`, make it executable with `chmod +x create-tunnel.sh`, and run it with the local URL of your web server as an argument:
-
-```bash
-./create-tunnel.sh http://localhost:8000
-```
-
-Voila! But be careful: now anyone who visits `https://tunnel.your-domain.com` will be able to access your local web server. Since domain names are public, make sure you don't use sensitive information in the URL. If you want to stop sharing your server, just kill the script (Ctrl+C) and the tunnel will be closed.
