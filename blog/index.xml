@@ -6,8 +6,15 @@
     <description>Recent content in Blogs on Gauthier Jolly</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Dec 2025 19:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Dec 2025 15:30:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exposing a local web server using Cloudflare Tunnels</title>
+      <link>https://gjolly.fr/blog/cf-tunnels/</link>
+      <pubDate>Tue, 16 Dec 2025 15:30:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/cf-tunnels/</guid>
+      <description>Make your local web server accessible from the internet using Cloudflare Tunnels</description>
+    </item>
     <item>
       <title>Build an AI inference server on Ubuntu</title>
       <link>https://gjolly.fr/blog/llm-inference/</link>
