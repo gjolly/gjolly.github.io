@@ -1,9 +1,8 @@
 ---
 date: 2026-01-14T15:30:00Z
 title: "Attestable Immutable Nodes for Kubernetes"
-description: "How immutable operating systems and confidential computing can provide a trustworthy foundation for Kubernetes worker nodes"
+description: "How immutable operating systems and Confidential Computing can provide a trustworthy foundation for Kubernetes worker nodes"
 tags: ["Confidential Computing", "Linux", "Kubernetes"]
-showtoc: false
 ---
 
 ## Rethinking the Trust Boundary of Kubernetes Nodes
@@ -34,7 +33,10 @@ However, immutability alone does not establish trust. A node may be immutable an
 
 ## Confidential Computing and TPM-Backed Attestation
 
-Confidential computing provides the missing link between immutability and trust. When Kubernetes worker nodes run as Confidential Virtual Machines, their memory is protected by hardware-enforced isolation, and a virtual TPM operates inside the VM’s Trusted Execution Environment.
+Confidential Computing provides the missing link between immutability and trust. When Kubernetes worker nodes run as Confidential Virtual Machines, their memory is protected by hardware-enforced isolation, and a virtual TPM operates inside the VM’s Trusted Execution Environment.
+
+![vTPM in Confidential VM](/images/vtpm-in-confidential-vm-diagram.png)
+*Image credit: [Microsoft](https://learn.microsoft.com/fr-fr/azure/confidential-computing/virtual-tpms-in-azure-confidential-vm)*
 
 This secure TPM is not merely a software abstraction. Its state and keys are shielded from the host and cloud operator, and it can produce cryptographic evidence about the VM’s boot process. As a result, measurements collected during boot can be trusted as originating from the node itself rather than from external infrastructure.
 
@@ -50,7 +52,55 @@ A practical solution combines Unified Kernel Images with dm-verity. A UKI packag
 
 The root filesystem is protected using dm-verity, with its root hash embedded directly in the kernel command line. Because the command line is part of the UKI, it is included in the boot measurements recorded by the TPM. At runtime, dm-verity enforces the integrity of the root filesystem: any modification results in I/O errors rather than silent corruption.
 
-This design has an important consequence. Launch-time attestation remains valid during runtime, because the system cannot diverge from the measured state without being detected. The node is not only attestable at boot, but continuously constrained to the attested configuration.
+
+```mermaid
+---
+config:
+  flowchart:
+    subGraphTitleMargin:
+      bottom: 30
+---
+flowchart TB
+  %% UKI embeds the kernel cmdline, which embeds the dm-verity root hash.
+  %% That root hash binds the runtime rootfs to what was measured at boot.
+
+  subgraph UKI["Unified Kernel Image (UKI) — single signed/measured artifact"]
+    K["Kernel"]
+    I["Initramfs / initrd"]
+    C["Kernel command line<br/>(root=… ro …)<br/>(root_hash=H)"]
+    K --> I --> C
+  end
+
+  C -->|boot params passed to kernel| L["Linux boot"]
+
+  subgraph EXT["Extended runtime integrity via dm-verity"]
+    subgraph DMV["dm-verity mapping created at boot"]
+        H["Expected root hash H<br/>(from UKI cmdline)"]
+        V["dm-verity target<br/>(verifies blocks at runtime)"]
+        H --> V
+    end
+
+    L --> DMV
+
+    subgraph DISK["On-disk root filesystem image"]
+        R["Rootfs (read-only)<br/>(e.g., ext4/squashfs image)"]
+        M["dm-verity metadata / hash tree"]
+        R --- M
+    end
+  end
+
+  V -->|reads blocks| R
+  V -->|checks against hash tree| M
+
+  V -->|if block hash mismatch| FAIL["I/O error / mount fails<br/>(no silent modification)"]
+
+  V -->|if all blocks verify| OK["Verified rootfs mounted as /<br/>(runtime state matches measurement)"]
+
+  R --> OK
+  M --> OK
+```
+
+This design has an important consequence. **Launch-time attestation remains valid during runtime**, because the system cannot diverge from the measured state without being detected. The node is not only attestable at boot, but continuously constrained to the attested configuration.
 
 ---
 
@@ -66,7 +116,7 @@ Applying this model explicitly to Kubernetes worker nodes simply acknowledges th
 
 Despite the maturity of the underlying technologies, Kubernetes itself does not yet integrate remote attestation into its node lifecycle. There is no native mechanism to verify attestation evidence during node provisioning, nor to make scheduling or admission decisions based on node integrity claims. Existing solutions rely on custom bootstrap logic and external verification services.
 
-Another limitation is the reliance on cloud-provided firmware and TEE implementations. While confidential computing significantly raises the bar, the initial root of trust is still controlled by the cloud provider. This constrains transparency and limits portability across environments.
+Another limitation is the reliance on cloud-provided firmware and TEE implementations. While Confidential Computing significantly raises the bar, the initial root of trust is still controlled by the cloud provider. This constrains transparency and limits portability across environments.
 
 ---
 
@@ -76,10 +126,24 @@ The same architectural principles extend naturally to accelerators. GPUs are inc
 
 In such a model, the operating system, Kubernetes runtime, AI framework, and GPU execution context can all be verified. This enables strong guarantees for sensitive inference workloads, where both models and data must remain protected even from infrastructure operators.
 
+![Confidential AI Inference Topology](/images/example-topology-4-gpu.png)
+*Image credit: [NVIDIA](https://developer.nvidia.com/blog/confidential-computing-on-h100-gpus-for-secure-and-trustworthy-ai/)*
+
+
 ---
 
 ## Conclusion
 
-Bringing an Android-like security model to infrastructure is a significant step. The constraints are different, the environments are more heterogeneous, and the trust boundaries are harder to define. Still, the building blocks are starting to align. Confidential computing, hardware-backed isolation, and TPMs operating inside TEEs make it increasingly practical to reason about node integrity in concrete terms.
+Bringing an Android-like security model to infrastructure is a significant step. The constraints are different, the environments are more heterogeneous, and the trust boundaries are harder to define. Still, the building blocks are starting to align. Confidential Computing, hardware-backed isolation, and TPMs operating inside TEEs make it increasingly practical to reason about node integrity in concrete terms.
 
 While Kubernetes does not yet fully integrate these mechanisms, the direction is clear. As confidential VMs and attestable execution environments become more widely available, treating the node OS as a verifiable foundation rather than an opaque substrate appears less experimental and more like a natural evolution of infrastructure security.
+
+---
+
+## References
+
+- [Microsoft: Virtual TPMs in Azure Confidential VMs](https://learn.microsoft.com/fr-fr/azure/confidential-computing/virtual-tpms-in-azure-confidential-vm)
+- [NVIDIA: Confidential Computing on H100 GPUs for Secure and Trustworthy AI](https://developer.nvidia.com/blog/confidential-computing-on-h100-gpus-for-secure-and-trustworthy-ai/)
+- [Linux Kernel: dm-verity](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/verity.html)
+- [UAPI Group: Unified Kernel Image (UKI)](https://uapi-group.org/specifications/specs/unified_kernel_image/)
+- [AWS Attestable AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestable-ami.html)
