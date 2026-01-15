@@ -52,53 +52,7 @@ A practical solution combines Unified Kernel Images with dm-verity. A UKI packag
 
 The root filesystem is protected using dm-verity, with its root hash embedded directly in the kernel command line. Because the command line is part of the UKI, it is included in the boot measurements recorded by the TPM. At runtime, dm-verity enforces the integrity of the root filesystem: any modification results in I/O errors rather than silent corruption.
 
-
-```mermaid
----
-config:
-  flowchart:
-    subGraphTitleMargin:
-      bottom: 30
----
-flowchart TB
-  %% UKI embeds the kernel cmdline, which embeds the dm-verity root hash.
-  %% That root hash binds the runtime rootfs to what was measured at boot.
-
-  subgraph UKI["Unified Kernel Image (UKI) — single signed/measured artifact"]
-    K["Kernel"]
-    I["Initramfs / initrd"]
-    C["Kernel command line<br/>(root=… ro …)<br/>(root_hash=H)"]
-    K --> I --> C
-  end
-
-  C -->|boot params passed to kernel| L["Linux boot"]
-
-  subgraph EXT["Extended runtime integrity via dm-verity"]
-    subgraph DMV["dm-verity mapping created at boot"]
-        H["Expected root hash H<br/>(from UKI cmdline)"]
-        V["dm-verity target<br/>(verifies blocks at runtime)"]
-        H --> V
-    end
-
-    L --> DMV
-
-    subgraph DISK["On-disk root filesystem image"]
-        R["Rootfs (read-only)<br/>(e.g., ext4/squashfs image)"]
-        M["dm-verity metadata / hash tree"]
-        R --- M
-    end
-  end
-
-  V -->|reads blocks| R
-  V -->|checks against hash tree| M
-
-  V -->|if block hash mismatch| FAIL["I/O error / mount fails<br/>(no silent modification)"]
-
-  V -->|if all blocks verify| OK["Verified rootfs mounted as /<br/>(runtime state matches measurement)"]
-
-  R --> OK
-  M --> OK
-```
+![Immutable Attestable Node Architecture](/images/immutable-attestable-node-architecture.svg)
 
 This design has an important consequence. **Launch-time attestation remains valid during runtime**, because the system cannot diverge from the measured state without being detected. The node is not only attestable at boot, but continuously constrained to the attested configuration.
 
