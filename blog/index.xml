@@ -4,10 +4,17 @@
     <title>Blogs on Gauthier Jolly</title>
     <link>https://gjolly.fr/blog/</link>
     <description>Recent content in Blogs on Gauthier Jolly</description>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.154.5</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Dec 2025 15:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jan 2026 15:30:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Attestable Immutable Nodes for Kubernetes</title>
+      <link>https://gjolly.fr/blog/confidential-computing-vision/</link>
+      <pubDate>Wed, 14 Jan 2026 15:30:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/confidential-computing-vision/</guid>
+      <description>How immutable operating systems and confidential computing can provide a trustworthy foundation for Kubernetes worker nodes</description>
+    </item>
     <item>
       <title>Exposing a local web server using Cloudflare Tunnels</title>
       <link>https://gjolly.fr/blog/cf-tunnels/</link>
