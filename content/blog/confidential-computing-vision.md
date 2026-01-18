@@ -31,16 +31,28 @@ However, immutability alone does not establish trust. A node may be immutable an
 
 ---
 
-## Confidential Computing and TPM-Backed Attestation
+## TPM-Backed Attestation
 
-Confidential Computing provides the missing link between immutability and trust. When Kubernetes worker nodes run as Confidential Virtual Machines, their memory is protected by hardware-enforced isolation, and a virtual TPM operates inside the VM’s Trusted Execution Environment.
+A Trusted Platform Module (TPM) is a hardware component that provides cryptographic capabilities for secure boot and attestation. During the boot process, the TPM measures each component loaded—firmware, bootloader, kernel, initramfs, and configuration—by computing and storing cryptographic hashes in its Platform Configuration Registers (PCRs).
+
+These measurements form a chain of trust: each boot stage measures the next before transferring control to it. Because the TPM is a dedicated hardware component, these measurements cannot be forged by software running on the system. Once the system is fully booted, the PCR values represent a cryptographic summary of exactly what was loaded.
+
+Remote attestation leverages these measurements. The TPM can produce a signed quote containing PCR values, which an external verifier can check against expected values. This allows the verifier to confirm not only that a node booted successfully, but precisely *what* it booted.
+
+---
+
+## Confidential Computing: When Your Node is a VM
+
+But what happens if your node is a VM and there is no physical TPM available?
+
+This is where Confidential Computing provides a solution. When Kubernetes worker nodes run as Confidential Virtual Machines, their memory is protected by hardware-enforced isolation (using technologies like AMD SEV-SNP or Intel TDX), and a virtual TPM (vTPM) operates inside the VM's Trusted Execution Environment.
 
 ![vTPM in Confidential VM](/images/vtpm-in-confidential-vm-diagram.png)
 *Image credit: [Microsoft](https://learn.microsoft.com/fr-fr/azure/confidential-computing/virtual-tpms-in-azure-confidential-vm)*
 
-This secure TPM is not merely a software abstraction. Its state and keys are shielded from the host and cloud operator, and it can produce cryptographic evidence about the VM’s boot process. As a result, measurements collected during boot can be trusted as originating from the node itself rather than from external infrastructure.
+This vTPM is not merely a software abstraction. Its state and keys are shielded from the host and cloud operator, protected by the same hardware isolation that secures the VM's memory. It can produce cryptographic evidence about the VM's boot process that is verifiably bound to the hardware Trusted Execution Environment.
 
-This makes remote attestation practical: an external verifier can confirm not only that a node booted successfully, but precisely *what* it booted.
+As a result, measurements collected during boot can be trusted as originating from the node itself rather than from the cloud provider or hypervisor. This extends the TPM-based attestation model to virtualized environments while maintaining the same security properties.
 
 ---
 
