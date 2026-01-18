@@ -6,8 +6,17 @@
     <description>Recent content on Gauthier Jolly</description>
     <generator>Hugo -- 0.154.5</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Jan 2026 15:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Jan 2026 15:30:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The race toward Confidential AI inference</title>
+      <link>https://gjolly.fr/blog/confidential-ai-inference/</link>
+      <pubDate>Sun, 18 Jan 2026 15:30:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/confidential-ai-inference/</guid>
+      <description>&lt;p&gt;For almost half a decade now, I have been working on Confidential Computing at Canonical. This position has given me a front-row seat to the evolution of Confidential Computing technologies and their applications.&lt;/p&gt;
+&lt;p&gt;One of the most exciting applications is Confidential AI inference, which allows AI models to be hosted and executed in a way that can keep the user&amp;rsquo;s input data confidential, even from the service provider itself.&lt;/p&gt;
+&lt;p&gt;While Apple is announcing &lt;a href=&#34;https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/&#34;&gt;a partnership with Google&lt;/a&gt;, to base its own models on Google Gemini and while some might see this as a failure, it is worth noting that Apple Intelligence already has a meaningful legacy.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Attestable Immutable Nodes for Kubernetes</title>
       <link>https://gjolly.fr/blog/confidential-computing-vision/</link>

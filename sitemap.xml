@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gjolly.fr/blog/confidential-computing-vision/</loc>
-    <lastmod>2026-01-14T15:30:00+00:00</lastmod>
+    <loc>https://gjolly.fr/tags/ai/</loc>
+    <lastmod>2026-01-18T15:30:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/blog/</loc>
-    <lastmod>2026-01-14T15:30:00+00:00</lastmod>
+    <lastmod>2026-01-18T15:30:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/tags/confidential-computing/</loc>
-    <lastmod>2026-01-14T15:30:00+00:00</lastmod>
+    <lastmod>2026-01-18T15:30:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/</loc>
+    <lastmod>2026-01-18T15:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/tags/</loc>
+    <lastmod>2026-01-18T15:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/blog/confidential-ai-inference/</loc>
+    <lastmod>2026-01-18T15:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gjolly.fr/blog/confidential-computing-vision/</loc>
     <lastmod>2026-01-14T15:30:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/tags/kubernetes/</loc>
@@ -20,17 +29,11 @@
     <loc>https://gjolly.fr/tags/linux/</loc>
     <lastmod>2026-01-14T15:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://gjolly.fr/tags/</loc>
-    <lastmod>2026-01-14T15:30:00+00:00</lastmod>
-  </url><url>
     <loc>https://gjolly.fr/tags/cloudflare/</loc>
     <lastmod>2025-12-16T15:30:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/blog/cf-tunnels/</loc>
     <lastmod>2025-12-16T15:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gjolly.fr/tags/ai/</loc>
-    <lastmod>2025-12-13T19:10:00+00:00</lastmod>
   </url><url>
     <loc>https://gjolly.fr/blog/llm-inference/</loc>
     <lastmod>2025-12-13T19:10:00+00:00</lastmod>
