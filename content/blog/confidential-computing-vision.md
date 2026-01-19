@@ -64,7 +64,7 @@ A practical solution combines Unified Kernel Images with dm-verity. A UKI packag
 
 The root filesystem is protected using dm-verity, with its root hash embedded directly in the kernel command line. Because the command line is part of the UKI, it is included in the boot measurements recorded by the TPM. At runtime, dm-verity enforces the integrity of the root filesystem: any modification results in I/O errors rather than silent corruption.
 
-![Immutable Attestable Node Architecture](/images/immutable-attestable-node-architecture.svg)
+![Immutable Attestable Node Architecture](/images/immutable-attestable-node-architecture.png)
 
 This design has an important consequence. **Launch-time attestation remains valid during runtime**, because the system cannot diverge from the measured state without being detected. The node is not only attestable at boot, but continuously constrained to the attested configuration.
 
