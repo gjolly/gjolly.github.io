@@ -6,8 +6,16 @@
     <description>Recent content in Blogs on Gauthier Jolly</description>
     <generator>Hugo -- 0.154.5</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jan 2026 15:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Jan 2026 17:30:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The trust model of vTPM in Confidential VMs</title>
+      <link>https://gjolly.fr/blog/ek-cvm-binding/</link>
+      <pubDate>Wed, 21 Jan 2026 17:30:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/ek-cvm-binding/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://gjolly.fr/blog/confidential-computing-vision/&#34;&gt;In a previous post&lt;/a&gt;, I explained that the direction most Confidential Computing deployments are converging toward is to &lt;strong&gt;reintroduce the TPM abstraction inside the Confidential VM itself&lt;/strong&gt;. Rather than relying on a physical TPM, the goal is to expose a TPM interface from within the TEE.&lt;/p&gt;
+&lt;p&gt;This design choice is largely pragmatic. It enables a lift-and-shift model for existing operating systems and workloads that already depend on TPMs for measured boot, disk encryption, and remote attestation. At the same time, it preserves the familiar TPM security guarantees while replacing physical trust assumptions with hardware-enforced isolation.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The race toward Confidential AI inference</title>
       <link>https://gjolly.fr/blog/confidential-ai-inference/</link>
