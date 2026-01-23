@@ -11,7 +11,7 @@ This design choice is largely pragmatic. It enables a lift-and-shift model for e
 ![vTPM in Confidential VM](/images/vtpm-in-confidential-vm-diagram.png)
 *Image credit: [Microsoft](https://learn.microsoft.com/fr-fr/azure/confidential-computing/virtual-tpms-in-azure-confidential-vm)*
 
-To make this work, the vTPM cannot run inside the guest kernel. Instead, it is hosted by a small, highly privileged runtime that sits *above* the guest OS. Two concrete examples of this approach are **coconut-svsm** in the AMD SEV-SNP ecosystem and **OpenHCL** in Microsoft’s confidential computing stack.
+To make this work, the vTPM cannot run inside the guest kernel. Instead, it is hosted by a small, highly privileged runtime that sits *above* the guest OS. Two concrete examples of this approach are **[COCONUT-SVSM](https://github.com/coconut-svsm/svsm)** in the AMD SEV-SNP ecosystem and **[OpenHCL](https://openvmm.dev/guide/user_guide/openhcl.html)** in Microsoft’s confidential computing stack.
 
 These components are sometimes called *firmware*, but that label hides an important detail. They are not just boot-time code like UEFI. They are **resident runtimes**, measured at VM launch, executing at a higher privilege level than the guest kernel, and entered whenever the VM performs a confidential-computing exit. In practice, they act as *paravisors*, hosting security-critical services such as memory validation, device mediation, and the vTPM itself.
 
@@ -95,8 +95,6 @@ The kernel can relay messages, but it cannot inject its own key into the attesta
 This design resolves the original paradox cleanly.
 
 The vTPM and paravisor binaries remain fully reproducible and auditable. The EK is unique and secret, generated at runtime rather than embedded in the build. And trust in that EK comes not from preinstalled certificates, but from cryptographic binding to a hardware-attested execution environment.
-
-In short, the EK does not need to be trusted *a priori*. It only needs to be proven to exist **inside the right place**.
 
 ## References
 
