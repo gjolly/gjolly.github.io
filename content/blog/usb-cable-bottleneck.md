@@ -42,11 +42,15 @@ When I bought the enclosure, I hadn't thought about speed at all — I just want
 
 I went through the household drawer of "USB-C things" one cable at a time, plugging each one in, watching `lsusb -t`, and noting the negotiated speed. `480M`, `480M`, `480M`, etc. "It's not possible!" I told Claude, "it can't be true, that must be my devices not supporting this speed". So I started redoing the tests with different devices, but the results were the same. Eventually I found one that came up at `5000M` — a lonely SuperSpeed cable that had somehow infiltrated the drawer years ago and lived peacefully among a couple of dozen visually identical USB 2.0 charging cables. Was it the one originally provided with the SSD enclosure? I didn't tell Claude about my suspicion — I was afraid it might judge me.
 
+![A mess of USB cables](/images/usb-cables-mess.jpeg)
+
 The mechanics here are worth spelling out, because they're the reason this kind of mistake is easy to make. USB-C connectors physically accept cables that are *electrically* USB 2.0 only: the four legacy data wires are present, the two SuperSpeed differential pairs simply aren't wired. The plug looks identical, the device powers up, files transfer, charging works — and the host quietly negotiates down to 480 Mb/s because there is no other option. The marking on the cable, if any, is whatever the manufacturer chose to print, and it long since rubbed off in mine.
 
 ## Future-proofing, in theory
 
 Having now learned that "USB-C cable" is a wide category, I decided to buy USB4 / USB 80Gbps-rated cables. Basically, it's the most you can buy. Properly rated full-featured USB-C cables should also work with lower-speed USB modes, and the link will negotiate to the best speed supported by the host, device, and cable. I did not need 80 Gb/s for this SSD; I mainly wanted cables whose advertised data capability was no longer the weakest link. That was more than enough justification to treat myself to new gadgets.
+
+![SSD USB enclosue with chunky cable attached](/images/ssd-with-cable.jpeg)
 
 I plugged a new cable into my laptop, ran `lsusb -t`, and got the satisfying number:
 
@@ -121,5 +125,7 @@ If you're going to do this, three things I wish I had known going in:
 **Check `lsusb -t`, not just `lsusb`.** The tree view shows the speed each device negotiated. If it doesn't match what you expected, you have something worth investigating before blaming software.
 
 **Most USB-C cables in your house are probably USB 2.0.** The cables that ship with phones and small electronics almost always are, regardless of how thick or "premium" they look. There is no reliable visual marker. The cables you can trust are the ones explicitly labelled `USB 3` / `SuperSpeed` / `5 Gbps` / `10 Gbps`, or anything claiming USB4 or Thunderbolt.
+
+![A 25 euro USB cable](/images/USB-80Gbps.jpeg)
 
 **Check the host before you buy the cable.** The cable is the cheap part. The motherboard's USB controller silicon is what actually decides your ceiling, and "USB 3.1" on a spec sheet does not tell you whether you're getting Gen 1 or Gen 2. Run `lspci` and `lsusb -t` on the real target machine before spending money. Buying an "expensive" cable is one thing, but if you buy an HDMI-to-USB capture card and plug it into a USB 2.0 port, you really won't get the value you paid for.
