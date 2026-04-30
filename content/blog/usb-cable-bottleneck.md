@@ -1,5 +1,5 @@
 ---
-title: "Learning about USB specs"
+title: "Troubleshooting USB speed issues with Claude Code"
 date: 2026-04-30
 draft: false
 tags: ["linux", "usb", "hardware", "troubleshooting", "homelab"]
