@@ -38,7 +38,7 @@ The good news: this was clearly fixable. The bad news: I was about to learn a lo
 
 ## How USB negotiation actually works
 
-A USB 3.x connection is really two connections in one cable. The four legacy USB 2.0 wires carry the High Speed (480 Mb/s) link, and two additional differential pairs (`SSTX±` / `SSRX±`) carry the SuperSpeed (5 / 10 / 20 Gb/s) link. Each xHCI controller exposes itself to Linux as **two root hubs**: one for the 2.0 lanes, one for the SuperSpeed lanes. Same physical port, two logical paths.
+A USB 3.x connection over USB-C is effectively layered on top of the legacy USB 2.0 connection. The USB 2.0 D+/D− wires carry the 480 Mb/s link, while separate high-speed differential pairs in a full-featured USB-C cable carry the SuperSpeed / USB4 traffic. For ordinary single-lane USB 3.x storage, that means a SuperSpeed transmit/receive path in addition to the USB 2.0 path.
 
 You can see this in the `lsusb -t` output above. The same xHCI controller publishes a 4-port 2.0 root hub at `480M` and a 2-port SuperSpeed root hub at `10000M`. To confirm two root hubs belong to the same controller, look at their PCI parent:
 
@@ -76,7 +76,7 @@ So: ten cables, exactly one SuperSpeed survivor. Time to go shopping.
 
 ## Future-proofing, in theory
 
-Having now learned that "USB-C cable" is a wide category, I decided to do it properly and buy USB4-rated cables. USB4 cables are required by spec to support every lower mode — USB 2.0, USB 3.x at 5 / 10 / 20 Gb/s, USB4 at 20 / 40 / 80 Gb/s — and on hardware that can only do 10 Gb/s they cleanly negotiate down. I wouldn't need 80 Gb/s for the SSD, but the cables would outlive several laptops, future Thunderbolt docks, future enclosures, future everything. That was more than enough justification to treat myself to new gadgets.
+Having now learned that "USB-C cable" is a wide category, I decided to buy USB4 / USB 80Gbps-rated cables. Properly rated full-featured USB-C cables should also work with lower-speed USB modes, and the link will negotiate to the best speed supported by the host, device, and cable. I did not need 80 Gb/s for this SSD; I mainly wanted cables whose advertised data capability was no longer the weakest link. That was more than enough justification to treat myself to new gadgets.
 
 I plugged a new cable into my laptop, ran `lsusb -t`, and got the satisfying number:
 
@@ -97,7 +97,7 @@ $ fio --name=read \
 The flags that matter:
 
 - `--direct=1` bypasses the page cache, so a second run does not lie to you with multi-GB/s numbers from RAM.
-- `--ioengine=libaio` together with `--iodepth=32` lets the kernel pipeline I/O through USB's non-trivial per-request latency. At queue depth 1 (the default), each request waits for the previous one to complete; with 1 MiB blocks and roughly 1 ms per round-trip you cap out around 290 MB/s no matter how fast the underlying link is. The first time I benchmarked, I forgot this and got exactly that misleading number.
+- `--ioengine=libaio` together with `--iodepth=32` lets the kernel pipeline I/O through USB's non-trivial per-request latency. At queue depth 1, each request waits for the previous one to complete; with 1 MiB blocks, even a few milliseconds of end-to-end latency can cap throughput well below the link speed.
 
 With the right flags, on the laptop:
 
@@ -113,7 +113,7 @@ I unplugged the cable and the enclosure from the laptop, walked over to the desk
 
 Five thousand. Not ten thousand.
 
-By process of elimination it had to be the USB-C port on the desktop, so I went looking. `lspci` pointed at one of the AMD chipset's "USB 3.1" controllers, which on this particular B550 motherboard turns out to mean USB 3.1 **Gen 1**: 5 Gb/s. This is where I learned my final USB lesson of the week: "Gen 2" is the part that gets you to 10 Gb/s, and "USB 3.1" on a spec sheet without that suffix tells you essentially nothing. I had bought the cables expecting the host to keep up. The host had other plans.
+By process of elimination it had to be the USB-C port on the desktop, so I went looking. `lspci` pointed at one of the AMD chipset's "USB 3.1" controllers, which on this particular B550 motherboard turns out to mean USB 3.1 **Gen 1**: 5 Gb/s. This is where I learned my final USB lesson of the week: "Gen 2" is the part that gets you to 10 Gb/s, and “USB 3.1” without “Gen 1,” “Gen 2,” or an explicit speed is not enough information. The useful label is the speed: 5 Gb/s, 10 Gb/s, 20 Gb/s, and so on. I had bought the cables expecting the host to keep up. The host had other plans.
 
 So my shiny new 80 Gb/s cables, bought to future-proof a 10 Gb/s link, will run my actual rootfs at 5 Gb/s — exactly the same speed as that lone SuperSpeed cable I had already found in the drawer a few days earlier. By my arithmetic, that makes them **sixteen times overspecified** for the port they're plugged into. On the bright side, they are now extremely well-prepared for whatever I plug them into next.
 
@@ -146,7 +146,7 @@ So I'm done. The cables stay.
 
 I had heard people say USB specs were complicated. I had nodded along, the way you nod when someone tells you DNS is hard, without really internalising it. I now understand, in a much more tactile way, what they meant.
 
-The same connector, USB-C, can carry anything from 480 Mb/s to 80 Gb/s depending on whether the cable has the SuperSpeed pairs wired, whether the host port has the SuperSpeed pairs wired, whether the host's xHCI controller is Gen 1 or Gen 2 or Gen 2x2 or USB4, and whether the device's bridge chip negotiates SuperSpeed correctly. None of this is visible from the outside. The only way to know what speed you're actually getting is to plug everything in and read `lsusb -t`.
+The same connector, USB-C, can carry anything from 480 Mb/s to 80 Gb/s depending on whether the cable has the SuperSpeed pairs wired, whether the host port has the SuperSpeed pairs wired, whether the host's xHCI controller is Gen 1 or Gen 2 or Gen 2x2 or USB4, and whether the device's bridge chip negotiates SuperSpeed correctly. None of this is visible from the outside. On Linux, the quickest way to know what speed you actually negotiated is to plug everything in and read `lsusb -t`.
 
 If you're going to do this, three things I wish I had known going in:
 
