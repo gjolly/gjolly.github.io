@@ -4,10 +4,18 @@
     <title>Gauthier Jolly</title>
     <link>https://gjolly.fr/</link>
     <description>Recent content on Gauthier Jolly</description>
-    <generator>Hugo -- 0.154.5</generator>
+    <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Jan 2026 17:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gjolly.fr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning about USB specs</title>
+      <link>https://gjolly.fr/blog/usb-cable-bottleneck/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/usb-cable-bottleneck/</guid>
+      <description>&lt;h2 id=&#34;why-i-boot-linux-from-a-usb-attached-nvme&#34;&gt;Why I boot Linux from a USB-attached NVMe&lt;/h2&gt;
+&lt;p&gt;I run a small home server on a Mini-ITX desktop that I also use as my gaming machine on Windows. The motherboard, an ASRock B550M-ITX/ac, has a single PCIe slot occupied by the GPU and one obvious M.2 slot already taken by the Windows drive. When I wanted to run Linux on the same machine for LLM inference (Ollama, Open WebUI, that sort of thing), I had to find another way.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The trust model of vTPM in Confidential VMs</title>
       <link>https://gjolly.fr/blog/ek-cvm-binding/</link>

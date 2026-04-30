@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Homelab on Gauthier Jolly</title>
+    <link>https://gjolly.fr/tags/homelab/</link>
+    <description>Recent content in Homelab on Gauthier Jolly</description>
+    <generator>Hugo -- 0.161.1</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gjolly.fr/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning about USB specs</title>
+      <link>https://gjolly.fr/blog/usb-cable-bottleneck/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://gjolly.fr/blog/usb-cable-bottleneck/</guid>
+      <description>&lt;h2 id=&#34;why-i-boot-linux-from-a-usb-attached-nvme&#34;&gt;Why I boot Linux from a USB-attached NVMe&lt;/h2&gt;
+&lt;p&gt;I run a small home server on a Mini-ITX desktop that I also use as my gaming machine on Windows. The motherboard, an ASRock B550M-ITX/ac, has a single PCIe slot occupied by the GPU and one obvious M.2 slot already taken by the Windows drive. When I wanted to run Linux on the same machine for LLM inference (Ollama, Open WebUI, that sort of thing), I had to find another way.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
